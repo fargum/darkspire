@@ -1,6 +1,12 @@
 # DARKSPIRE: Depths of the Mad Archon
 
-A Wizardry-inspired party-based dungeon crawler. Create a roster of
+A Wizardry-inspired party-based dungeon crawler built with Python.
+I created this as a way of testing out the capabilities and cost of Claude Fable.
+I worked with the AI in coming up with a plan for building this complete game.
+And allowed it to implement the plan. full cost for the finished and polished version
+was around £58. We took about 2-3 hours working together to produce it.
+
+Create a roster of
 adventurers, form a party of six, and descend the ten-level Darkspire to
 take the stolen Everflame back from Vexis, the Mad Archon.
 
