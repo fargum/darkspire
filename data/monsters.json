@@ -1,0 +1,775 @@
+{
+  "giant_rat": {
+    "name": "Giant Rat",
+    "plural": "Giant Rats",
+    "unknown": "skittering shapes",
+    "level": 1,
+    "hp": "1d4",
+    "ac": 10,
+    "attacks": [
+      "1d3"
+    ],
+    "special": {
+      "poison": 0.1
+    },
+    "xp": 20,
+    "gold": "1d6"
+  },
+  "gutter_wisp": {
+    "name": "Gutter Wisp",
+    "plural": "Gutter Wisps",
+    "unknown": "pale glimmers",
+    "level": 1,
+    "hp": "1d4",
+    "ac": 9,
+    "attacks": [
+      "1d2"
+    ],
+    "xp": 25,
+    "gold": "1d4"
+  },
+  "bonepicker": {
+    "name": "Bonepicker",
+    "plural": "Bonepickers",
+    "unknown": "rattling figures",
+    "level": 1,
+    "hp": "2d4",
+    "ac": 9,
+    "attacks": [
+      "1d4"
+    ],
+    "xp": 40,
+    "gold": "1d8",
+    "undead": true
+  },
+  "rogue_apprentice": {
+    "name": "Rogue Apprentice",
+    "plural": "Rogue Apprentices",
+    "unknown": "hooded figures",
+    "level": 1,
+    "hp": "1d6",
+    "ac": 9,
+    "attacks": [
+      "1d4"
+    ],
+    "xp": 35,
+    "gold": "2d6"
+  },
+  "cellar_spider": {
+    "name": "Cellar Spider",
+    "plural": "Cellar Spiders",
+    "unknown": "clicking things",
+    "level": 1,
+    "hp": "1d6",
+    "ac": 8,
+    "attacks": [
+      "1d4"
+    ],
+    "special": {
+      "poison": 0.25
+    },
+    "xp": 60,
+    "gold": "1d6"
+  },
+  "rust_slime": {
+    "name": "Rust Slime",
+    "plural": "Rust Slimes",
+    "unknown": "heaving mounds",
+    "level": 1,
+    "hp": "3d4",
+    "ac": 11,
+    "attacks": [
+      "1d3"
+    ],
+    "xp": 55,
+    "gold": "1d4"
+  },
+  "drowned_one": {
+    "name": "Drowned One",
+    "plural": "Drowned Ones",
+    "unknown": "sodden figures",
+    "level": 2,
+    "hp": "2d6",
+    "ac": 8,
+    "attacks": [
+      "1d6"
+    ],
+    "xp": 90,
+    "gold": "2d8",
+    "undead": true
+  },
+  "marsh_leech": {
+    "name": "Marsh Leech",
+    "plural": "Marsh Leeches",
+    "unknown": "glistening coils",
+    "level": 2,
+    "hp": "2d4",
+    "ac": 9,
+    "attacks": [
+      "1d4"
+    ],
+    "special": {
+      "poison": 0.3
+    },
+    "xp": 70,
+    "gold": "1d6"
+  },
+  "cistern_crawler": {
+    "name": "Cistern Crawler",
+    "plural": "Cistern Crawlers",
+    "unknown": "many-legged shadows",
+    "level": 2,
+    "hp": "3d4",
+    "ac": 7,
+    "attacks": [
+      "1d4",
+      "1d4"
+    ],
+    "xp": 110,
+    "gold": "2d6"
+  },
+  "pale_frog": {
+    "name": "Pale Frog",
+    "plural": "Pale Frogs",
+    "unknown": "wet croaking bulks",
+    "level": 2,
+    "hp": "2d6",
+    "ac": 8,
+    "attacks": [
+      "1d6"
+    ],
+    "xp": 85,
+    "gold": "1d8"
+  },
+  "hollow_squire": {
+    "name": "Hollow Squire",
+    "plural": "Hollow Squires",
+    "unknown": "armored silhouettes",
+    "level": 2,
+    "hp": "3d6",
+    "ac": 6,
+    "attacks": [
+      "1d6"
+    ],
+    "xp": 160,
+    "gold": "3d8",
+    "undead": true
+  },
+  "slime_horror": {
+    "name": "Slime Horror",
+    "plural": "Slime Horrors",
+    "unknown": "heaving masses",
+    "level": 2,
+    "hp": "4d4",
+    "ac": 9,
+    "attacks": [
+      "1d4",
+      "1d4"
+    ],
+    "xp": 140,
+    "gold": "2d6"
+  },
+  "animated_armor": {
+    "name": "Animated Armor",
+    "plural": "Animated Armors",
+    "unknown": "clanking shells",
+    "level": 3,
+    "hp": "3d8",
+    "ac": 4,
+    "attacks": [
+      "1d8"
+    ],
+    "xp": 200,
+    "gold": "2d10"
+  },
+  "ember_hound": {
+    "name": "Ember Hound",
+    "plural": "Ember Hounds",
+    "unknown": "glowing-eyed beasts",
+    "level": 3,
+    "hp": "3d6",
+    "ac": 7,
+    "attacks": [
+      "1d6"
+    ],
+    "breath": {
+      "dice": "2d4",
+      "chance": 0.35
+    },
+    "xp": 220,
+    "gold": "2d8"
+  },
+  "foundry_imp": {
+    "name": "Foundry Imp",
+    "plural": "Foundry Imps",
+    "unknown": "capering sparks",
+    "level": 3,
+    "hp": "2d6",
+    "ac": 8,
+    "attacks": [
+      "1d4"
+    ],
+    "caster": {
+      "spells": [
+        "halito"
+      ],
+      "chance": 0.5
+    },
+    "xp": 180,
+    "gold": "2d10"
+  },
+  "iron_beetle": {
+    "name": "Iron Beetle",
+    "plural": "Iron Beetles",
+    "unknown": "scuttling plates",
+    "level": 3,
+    "hp": "4d6",
+    "ac": 5,
+    "attacks": [
+      "1d6"
+    ],
+    "xp": 210,
+    "gold": "1d10"
+  },
+  "forge_warden": {
+    "name": "Forge Warden",
+    "plural": "Forge Wardens",
+    "unknown": "a towering iron figure",
+    "level": 4,
+    "hp": "6d8+8",
+    "ac": 4,
+    "attacks": [
+      "1d10"
+    ],
+    "breath": {
+      "dice": "2d8",
+      "chance": 0.3
+    },
+    "xp": 900,
+    "gold": "20d10"
+  },
+  "myconid": {
+    "name": "Myconid",
+    "plural": "Myconids",
+    "unknown": "shuffling caps",
+    "level": 3,
+    "hp": "3d6",
+    "ac": 8,
+    "attacks": [
+      "1d6"
+    ],
+    "special": {
+      "poison": 0.3
+    },
+    "xp": 200,
+    "gold": "1d10"
+  },
+  "fungal_shambler": {
+    "name": "Fungal Shambler",
+    "plural": "Fungal Shamblers",
+    "unknown": "heaving mold-heaps",
+    "level": 4,
+    "hp": "4d8",
+    "ac": 7,
+    "attacks": [
+      "1d6",
+      "1d6"
+    ],
+    "xp": 300,
+    "gold": "2d10"
+  },
+  "spore_witch": {
+    "name": "Spore Witch",
+    "plural": "Spore Witches",
+    "unknown": "veiled stooped figures",
+    "level": 4,
+    "hp": "3d6",
+    "ac": 7,
+    "attacks": [
+      "1d4"
+    ],
+    "caster": {
+      "spells": [
+        "katino",
+        "badios"
+      ],
+      "chance": 0.6
+    },
+    "xp": 340,
+    "gold": "4d10"
+  },
+  "warren_stalker": {
+    "name": "Warren Stalker",
+    "plural": "Warren Stalkers",
+    "unknown": "low swift shadows",
+    "level": 4,
+    "hp": "4d6",
+    "ac": 5,
+    "attacks": [
+      "1d6",
+      "1d6"
+    ],
+    "xp": 320,
+    "gold": "2d10"
+  },
+  "pale_wraith": {
+    "name": "Pale Wraith",
+    "plural": "Pale Wraiths",
+    "unknown": "drifting shrouds",
+    "level": 5,
+    "hp": "4d8",
+    "ac": 4,
+    "attacks": [
+      "1d8"
+    ],
+    "drain": 0.25,
+    "undead": true,
+    "xp": 620,
+    "gold": "3d10"
+  },
+  "court_specter": {
+    "name": "Court Specter",
+    "plural": "Court Specters",
+    "unknown": "masked shimmerings",
+    "level": 5,
+    "hp": "3d8",
+    "ac": 5,
+    "attacks": [
+      "1d6"
+    ],
+    "drain": 0.2,
+    "undead": true,
+    "xp": 520,
+    "gold": "3d10"
+  },
+  "pale_knight": {
+    "name": "Pale Knight",
+    "plural": "Pale Knights",
+    "unknown": "bone-white sentinels",
+    "level": 5,
+    "hp": "5d8",
+    "ac": 3,
+    "attacks": [
+      "1d10"
+    ],
+    "undead": true,
+    "xp": 560,
+    "gold": "4d10"
+  },
+  "grave_priest": {
+    "name": "Grave Priest",
+    "plural": "Grave Priests",
+    "unknown": "chanting celebrants",
+    "level": 5,
+    "hp": "4d6",
+    "ac": 6,
+    "attacks": [
+      "1d6"
+    ],
+    "caster": {
+      "spells": [
+        "badios",
+        "manifo"
+      ],
+      "chance": 0.6
+    },
+    "xp": 500,
+    "gold": "5d10"
+  },
+  "pale_countess": {
+    "name": "Pale Countess",
+    "plural": "Pale Countesses",
+    "unknown": "a crowned pale figure",
+    "level": 6,
+    "hp": "8d8+10",
+    "ac": 2,
+    "attacks": [
+      "1d10"
+    ],
+    "drain": 0.35,
+    "caster": {
+      "spells": [
+        "mahalito",
+        "katino"
+      ],
+      "chance": 0.5
+    },
+    "undead": true,
+    "xp": 2200,
+    "gold": "30d10"
+  },
+  "mimic": {
+    "name": "Mimic",
+    "plural": "Mimics",
+    "unknown": "a waiting chest",
+    "level": 5,
+    "hp": "5d8",
+    "ac": 6,
+    "attacks": [
+      "1d8",
+      "1d8"
+    ],
+    "xp": 600,
+    "gold": "8d10"
+  },
+  "shifting_horror": {
+    "name": "Shifting Horror",
+    "plural": "Shifting Horrors",
+    "unknown": "unfolding geometries",
+    "level": 6,
+    "hp": "6d8",
+    "ac": 4,
+    "attacks": [
+      "1d8",
+      "1d8"
+    ],
+    "xp": 800,
+    "gold": "5d10"
+  },
+  "hall_stalker": {
+    "name": "Hall Stalker",
+    "plural": "Hall Stalkers",
+    "unknown": "long-limbed silhouettes",
+    "level": 6,
+    "hp": "5d8",
+    "ac": 3,
+    "attacks": [
+      "1d10"
+    ],
+    "xp": 750,
+    "gold": "4d10"
+  },
+  "mad_cartographer": {
+    "name": "Mad Cartographer",
+    "plural": "Mad Cartographers",
+    "unknown": "ink-stained wanderers",
+    "level": 6,
+    "hp": "4d8",
+    "ac": 6,
+    "attacks": [
+      "1d4"
+    ],
+    "caster": {
+      "spells": [
+        "molito",
+        "mahalito"
+      ],
+      "chance": 0.55
+    },
+    "xp": 720,
+    "gold": "6d10"
+  },
+  "chimera_whelp": {
+    "name": "Chimera Whelp",
+    "plural": "Chimera Whelps",
+    "unknown": "mismatched beasts",
+    "level": 7,
+    "hp": "5d8",
+    "ac": 4,
+    "attacks": [
+      "1d8",
+      "1d6"
+    ],
+    "breath": {
+      "dice": "3d6",
+      "chance": 0.3
+    },
+    "xp": 1000,
+    "gold": "6d10"
+  },
+  "flesh_hybrid": {
+    "name": "Flesh Hybrid",
+    "plural": "Flesh Hybrids",
+    "unknown": "shambling composites",
+    "level": 7,
+    "hp": "6d8",
+    "ac": 5,
+    "attacks": [
+      "1d10"
+    ],
+    "xp": 950,
+    "gold": "5d10"
+  },
+  "vexis_experiment": {
+    "name": "Vexis Experiment",
+    "plural": "Vexis Experiments",
+    "unknown": "twitching subjects",
+    "level": 7,
+    "hp": "4d8",
+    "ac": 6,
+    "attacks": [
+      "1d6"
+    ],
+    "caster": {
+      "spells": [
+        "molito"
+      ],
+      "chance": 0.5
+    },
+    "xp": 1050,
+    "gold": "8d10"
+  },
+  "cage_stalker": {
+    "name": "Cage Stalker",
+    "plural": "Cage Stalkers",
+    "unknown": "pacing shadows",
+    "level": 7,
+    "hp": "5d8",
+    "ac": 3,
+    "attacks": [
+      "1d8",
+      "1d8"
+    ],
+    "xp": 1100,
+    "gold": "5d10"
+  },
+  "the_amalgam": {
+    "name": "The Amalgam",
+    "plural": "The Amalgam",
+    "unknown": "a mountain of sewn flesh",
+    "level": 8,
+    "hp": "10d8+20",
+    "ac": 2,
+    "attacks": [
+      "1d10",
+      "1d10"
+    ],
+    "breath": {
+      "dice": "4d6",
+      "chance": 0.35
+    },
+    "xp": 4000,
+    "gold": "40d10"
+  },
+  "cinder_fiend": {
+    "name": "Cinder Fiend",
+    "plural": "Cinder Fiends",
+    "unknown": "smoldering figures",
+    "level": 8,
+    "hp": "6d8",
+    "ac": 3,
+    "attacks": [
+      "1d8"
+    ],
+    "breath": {
+      "dice": "3d8",
+      "chance": 0.35
+    },
+    "xp": 1400,
+    "gold": "8d10"
+  },
+  "gaol_demon": {
+    "name": "Gaol Demon",
+    "plural": "Gaol Demons",
+    "unknown": "horned warders",
+    "level": 8,
+    "hp": "7d8",
+    "ac": 2,
+    "attacks": [
+      "1d10",
+      "1d8"
+    ],
+    "xp": 1600,
+    "gold": "9d10"
+  },
+  "chain_devil": {
+    "name": "Chain Devil",
+    "plural": "Chain Devils",
+    "unknown": "writhing chain-knots",
+    "level": 8,
+    "hp": "6d8",
+    "ac": 3,
+    "attacks": [
+      "1d8",
+      "1d8"
+    ],
+    "caster": {
+      "spells": [
+        "manifo"
+      ],
+      "chance": 0.4
+    },
+    "xp": 1500,
+    "gold": "8d10"
+  },
+  "pyre_priest": {
+    "name": "Pyre Priest",
+    "plural": "Pyre Priests",
+    "unknown": "robed burners",
+    "level": 8,
+    "hp": "5d8",
+    "ac": 4,
+    "attacks": [
+      "1d6"
+    ],
+    "caster": {
+      "spells": [
+        "mahalito",
+        "badios"
+      ],
+      "chance": 0.6
+    },
+    "xp": 1550,
+    "gold": "10d10"
+  },
+  "gaol_keeper": {
+    "name": "Gaol Keeper",
+    "plural": "Gaol Keepers",
+    "unknown": "a wall of chains, walking",
+    "level": 9,
+    "hp": "9d8+15",
+    "ac": 2,
+    "attacks": [
+      "1d12",
+      "1d10"
+    ],
+    "breath": {
+      "dice": "3d8",
+      "chance": 0.3
+    },
+    "xp": 3500,
+    "gold": "30d10"
+  },
+  "null_stalker": {
+    "name": "Null Stalker",
+    "plural": "Null Stalkers",
+    "unknown": "absences in the dark",
+    "level": 9,
+    "hp": "7d8",
+    "ac": 2,
+    "attacks": [
+      "1d10",
+      "1d10"
+    ],
+    "sp_drain": 0.4,
+    "xp": 2200,
+    "gold": "10d10"
+  },
+  "void_shade": {
+    "name": "Void Shade",
+    "plural": "Void Shades",
+    "unknown": "deeper darknesses",
+    "level": 9,
+    "hp": "6d8",
+    "ac": 3,
+    "attacks": [
+      "1d8"
+    ],
+    "drain": 0.3,
+    "undead": true,
+    "xp": 2100,
+    "gold": "8d10"
+  },
+  "whisper_swarm": {
+    "name": "Whisper Swarm",
+    "plural": "Whisper Swarms",
+    "unknown": "murmuring clouds",
+    "level": 9,
+    "hp": "5d8",
+    "ac": 5,
+    "attacks": [
+      "1d4",
+      "1d4",
+      "1d4"
+    ],
+    "sp_drain": 0.3,
+    "xp": 1900,
+    "gold": "6d10"
+  },
+  "blind_watcher": {
+    "name": "Blind Watcher",
+    "plural": "Blind Watchers",
+    "unknown": "an eyeless bulk",
+    "level": 9,
+    "hp": "8d8",
+    "ac": 2,
+    "attacks": [
+      "1d10"
+    ],
+    "caster": {
+      "spells": [
+        "manifo",
+        "katino"
+      ],
+      "chance": 0.5
+    },
+    "xp": 2400,
+    "gold": "20d10"
+  },
+  "sanctum_guard": {
+    "name": "Sanctum Guard",
+    "plural": "Sanctum Guards",
+    "unknown": "gilded sentinels",
+    "level": 10,
+    "hp": "8d8+10",
+    "ac": 1,
+    "attacks": [
+      "1d10",
+      "1d10"
+    ],
+    "xp": 3000,
+    "gold": "15d10"
+  },
+  "flame_wraith": {
+    "name": "Flame Wraith",
+    "plural": "Flame Wraiths",
+    "unknown": "burning shrouds",
+    "level": 10,
+    "hp": "7d8",
+    "ac": 2,
+    "attacks": [
+      "1d8",
+      "1d8"
+    ],
+    "breath": {
+      "dice": "3d8",
+      "chance": 0.3
+    },
+    "undead": true,
+    "xp": 2800,
+    "gold": "12d10"
+  },
+  "archon_echo": {
+    "name": "Archon's Echo",
+    "plural": "Archon's Echoes",
+    "unknown": "flickering after-images",
+    "level": 10,
+    "hp": "7d8",
+    "ac": 2,
+    "attacks": [
+      "1d8"
+    ],
+    "caster": {
+      "spells": [
+        "mahalito",
+        "molito"
+      ],
+      "chance": 0.6
+    },
+    "xp": 3200,
+    "gold": "15d10"
+  },
+  "vexis": {
+    "name": "Vexis the Mad Archon",
+    "plural": "Vexis the Mad Archon",
+    "unknown": "the thief of the flame",
+    "level": 12,
+    "hp": "14d8+40",
+    "ac": 0,
+    "attacks": [
+      "1d10",
+      "1d10"
+    ],
+    "caster": {
+      "spells": [
+        "mahalito",
+        "katino",
+        "manifo"
+      ],
+      "chance": 0.55
+    },
+    "drain": 0.25,
+    "xp": 25000,
+    "gold": "100d10"
+  }
+}

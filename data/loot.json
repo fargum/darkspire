@@ -1,0 +1,352 @@
+{
+  "1": {
+    "gold": "4d10",
+    "chest_chance": 0.3,
+    "trap_chance": 0.75,
+    "items": [
+      [
+        null,
+        10
+      ],
+      [
+        "heal_draught",
+        4
+      ],
+      [
+        "antidote",
+        3
+      ],
+      [
+        "dagger_p1",
+        2
+      ],
+      [
+        "leather_p1",
+        1
+      ],
+      [
+        "bent_sword",
+        2
+      ],
+      [
+        "amulet_bone",
+        1
+      ]
+    ]
+  },
+  "2": {
+    "gold": "8d10",
+    "chest_chance": 0.35,
+    "trap_chance": 0.8,
+    "items": [
+      [
+        null,
+        8
+      ],
+      [
+        "heal_draught",
+        4
+      ],
+      [
+        "mace_p1",
+        2
+      ],
+      [
+        "buckler_p1",
+        2
+      ],
+      [
+        "long_sword_p1",
+        1
+      ],
+      [
+        "gloom_helm",
+        2
+      ],
+      [
+        "chain_p1",
+        1
+      ],
+      [
+        "amulet_bone",
+        2
+      ]
+    ]
+  },
+  "3": {
+    "gold": "14d10",
+    "chest_chance": 0.4,
+    "trap_chance": 0.8,
+    "items": [
+      [
+        null,
+        6
+      ],
+      [
+        "heal_draught",
+        4
+      ],
+      [
+        "mace_p1",
+        2
+      ],
+      [
+        "buckler_p1",
+        2
+      ],
+      [
+        "long_sword_p1",
+        2
+      ],
+      [
+        "chain_p1",
+        1
+      ],
+      [
+        "gloom_helm",
+        2
+      ],
+      [
+        "amulet_bone",
+        2
+      ]
+    ]
+  },
+  "4": {
+    "gold": "20d10",
+    "chest_chance": 0.4,
+    "trap_chance": 0.8,
+    "items": [
+      [
+        null,
+        5
+      ],
+      [
+        "heal_draught",
+        4
+      ],
+      [
+        "antidote",
+        4
+      ],
+      [
+        "long_sword_p1",
+        2
+      ],
+      [
+        "chain_p1",
+        2
+      ],
+      [
+        "leather_p1",
+        2
+      ],
+      [
+        "bent_sword",
+        2
+      ],
+      [
+        "amulet_bone",
+        2
+      ]
+    ]
+  },
+  "5": {
+    "gold": "30d10",
+    "chest_chance": 0.45,
+    "trap_chance": 0.85,
+    "items": [
+      [
+        null,
+        4
+      ],
+      [
+        "heal_draught",
+        4
+      ],
+      [
+        "long_sword_p1",
+        3
+      ],
+      [
+        "chain_p1",
+        3
+      ],
+      [
+        "buckler_p1",
+        2
+      ],
+      [
+        "gloom_helm",
+        2
+      ],
+      [
+        "amulet_bone",
+        3
+      ]
+    ]
+  },
+  "6": {
+    "gold": "40d10",
+    "chest_chance": 0.45,
+    "trap_chance": 0.85,
+    "items": [
+      [
+        null,
+        4
+      ],
+      [
+        "heal_draught",
+        5
+      ],
+      [
+        "long_sword_p1",
+        3
+      ],
+      [
+        "chain_p1",
+        3
+      ],
+      [
+        "mace_p1",
+        2
+      ],
+      [
+        "bent_sword",
+        2
+      ],
+      [
+        "amulet_bone",
+        4
+      ]
+    ]
+  },
+  "7": {
+    "gold": "55d10",
+    "chest_chance": 0.5,
+    "trap_chance": 0.85,
+    "items": [
+      [
+        null,
+        4
+      ],
+      [
+        "heal_draught",
+        4
+      ],
+      [
+        "long_sword_p1",
+        3
+      ],
+      [
+        "chain_p1",
+        3
+      ],
+      [
+        "flame_blade",
+        1
+      ],
+      [
+        "gloom_helm",
+        2
+      ],
+      [
+        "amulet_bone",
+        4
+      ]
+    ]
+  },
+  "8": {
+    "gold": "70d10",
+    "chest_chance": 0.5,
+    "trap_chance": 0.85,
+    "items": [
+      [
+        null,
+        4
+      ],
+      [
+        "heal_draught",
+        5
+      ],
+      [
+        "flame_blade",
+        2
+      ],
+      [
+        "chain_p1",
+        3
+      ],
+      [
+        "seraph_mail",
+        1
+      ],
+      [
+        "bent_sword",
+        2
+      ],
+      [
+        "amulet_bone",
+        4
+      ]
+    ]
+  },
+  "9": {
+    "gold": "90d10",
+    "chest_chance": 0.5,
+    "trap_chance": 0.9,
+    "items": [
+      [
+        null,
+        3
+      ],
+      [
+        "heal_draught",
+        5
+      ],
+      [
+        "flame_blade",
+        2
+      ],
+      [
+        "seraph_mail",
+        2
+      ],
+      [
+        "gloom_helm",
+        2
+      ],
+      [
+        "amulet_bone",
+        5
+      ]
+    ]
+  },
+  "10": {
+    "gold": "120d10",
+    "chest_chance": 0.55,
+    "trap_chance": 0.9,
+    "items": [
+      [
+        null,
+        3
+      ],
+      [
+        "heal_draught",
+        5
+      ],
+      [
+        "flame_blade",
+        3
+      ],
+      [
+        "seraph_mail",
+        2
+      ],
+      [
+        "amulet_bone",
+        6
+      ]
+    ]
+  }
+}

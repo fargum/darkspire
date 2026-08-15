@@ -1,0 +1,111 @@
+{
+ "name": "The Foundry",
+ "depth": 3,
+ "start": {
+  "x": 3,
+  "y": 16,
+  "facing": 0
+ },
+ "grid": [
+  "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+",
+  "|           |                           |",
+  "+ +-+-+-+-+ + + + + + + + + +-+-+-+-+-+ +",
+  "| |       | |               |         | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |       | |               |         | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |       D                 |         | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |       | |               |         | |",
+  "+ + + + + + + + + + + + + + +-+D+-+-+-+ +",
+  "| |       | |                           |",
+  "+ +-+D+-+-+ + +-+-+-+-+ +-+-+-+-+-+ +-+-+",
+  "|           |                           |",
+  "+ + + + + + + +-+-+-+-+-+-+ + + + + + + +",
+  "|           | |           |             |",
+  "+ + + + + + + + + + + + + + + +-+-+-+-+ +",
+  "|           | |           D   |       | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|             D           |   |       | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|           | |           |   D       | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|           | |           |   |       | |",
+  "+ + + + + + + +-+-+-+D+-+-+ + + + + + + +",
+  "|           |                 |       | |",
+  "+ + + + + + +-+-+ +-+-+-+-+-+-+-+-+-+-+-+",
+  "|                                       |",
+  "+ +-+-+D+-+-+ +-+-+D+-+-+-+ + + + + + + +",
+  "| |         | |           |             |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |         | |           D             |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |         D |           |             |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |         | |           |             |",
+  "+ + + + + + + +-+-+-+-+-+-+ + + + + + + +",
+  "| |         |                           |",
+  "+ +-+-+-+-+-+ + + + + + + + + + + + + + +",
+  "|                                       |",
+  "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+ ],
+ "specials": {
+  "3,16": {
+   "type": "stairs_up"
+  },
+  "16,2": {
+   "type": "stairs_down",
+   "requires": "iron_key",
+   "locked_text": "A door of black iron. Its lock is shaped like a hammer."
+  },
+  "9,9": {
+   "type": "encounter",
+   "id": "forge_warden",
+   "once": true,
+   "groups": [
+    [
+     "forge_warden",
+     "1d1"
+    ],
+    [
+     "ember_hound",
+     "1d2"
+    ]
+   ],
+   "grant": "iron_key",
+   "text": "The FORGE WARDEN rises from the coals, hammer in hand!",
+   "victory_text": "From the Warden's cooling grip falls the IRON KEY."
+  },
+  "5,9": {
+   "type": "pit",
+   "dice": "2d6",
+   "text": "A fire vent erupts underfoot!"
+  },
+  "13,8": {
+   "type": "pit",
+   "dice": "2d6",
+   "text": "A fire vent erupts underfoot!"
+  },
+  "9,13": {
+   "type": "pit",
+   "dice": "2d6",
+   "text": "A fire vent erupts underfoot!"
+  },
+  "10,15": {
+   "type": "spinner"
+  },
+  "3,14": {
+   "type": "message",
+   "text": "Heat beats down from somewhere ahead."
+  },
+  "9,10": {
+   "type": "message",
+   "text": "Anvils the size of oxen. Nothing sane forged here."
+  },
+  "15,2": {
+   "type": "message",
+   "text": "The vault of the forge-masters."
+  }
+ },
+ "zones": {}
+}

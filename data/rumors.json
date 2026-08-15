@@ -1,0 +1,28 @@
+{
+  "main": [
+    "\"The cisterns below the crypts? Something bronze glitters in the silt, where no light reaches.\"",
+    "\"The stair beneath the cisterns is sealed with bronze. Sealed things have keys, or sockets.\"",
+    "\"An iron giant tends the old forge. What it guards, it does not spend.\"",
+    "\"The foundry masters locked their vault with a hammer-shaped lock. Poetic lot.\"",
+    "\"There's an elevator shaft in the northwest of the Undercroft. Runs deeper than any sane rope.\"",
+    "\"A dead courtier haunts the fungal warrens. He'll trade a word for a word, if you answer true.\"",
+    "\"The Pale Court admits no one without the word. The mushroom ghost knows it.\"",
+    "\"Tribute, the pale arch demands. The Countess wears the only tribute that counts.\"",
+    "\"Wraiths drink the strength right out of you. The Dawnmother can pour it back \u2014 for coin.\"",
+    "\"Past the sixth cellar the halls move when you blink. Trust the counted step.\"",
+    "\"They say the Everflame still burns, far below. Aldenmoor's wards dim a little each dawn.\"",
+    "\"MILWA before you walk the dark levels, friend. Some corridors eat lanternlight whole.\"",
+    "\"A drunk swears the drowned kneel to something under the shrine. Drunks see truly, sometimes.\"",
+    "\"Chests scream, some of them. When one screams, everything below hears it.\"",
+    "\"The Menagerie keeper sewed his pets together. The key you want is inside the biggest one.\"",
+    "\"A seraph hangs in chains in the Ember Gaol. Free it, and carry its luck forever.\"",
+    "\"In the Null Ward, spells die and light drowns. A lens of void-glass sees what is true.\"",
+    "\"Reach the ninth cellar alive and tell the Temple. They keep a lantern for the worthy.\""
+  ],
+  "postgame": [
+    "\"The brazier burns brighter than any dawn. They did it. They actually did it.\"",
+    "\"Ward-Bearers drink free at the Griffin. House rule, as of forever.\"",
+    "\"The wards sing at night now. The deep things have stopped climbing.\"",
+    "\"Something older than Vexis stirred when the flame came home. Rumors, surely.\""
+  ]
+}

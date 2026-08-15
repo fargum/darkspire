@@ -1,0 +1,128 @@
+{
+ "name": "The Null Ward",
+ "depth": 9,
+ "start": {
+  "x": 3,
+  "y": 3,
+  "facing": 2
+ },
+ "grid": [
+  "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+",
+  "|               |                       |",
+  "+ +-+-+-+-+-+ + + + + + + + + + + + + + +",
+  "| |         |   |                       |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |         |   |                       |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |         |   |                       |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |         D                           |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |         |   |                       |",
+  "+-+-+D+-+-+-+-+-+-+-+-+ +-+-+-+ + + + + +",
+  "|               |           |           |",
+  "+ + + + + + + + + + + + + + + +-+-+-+-+ +",
+  "|               |           | |       | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|               |             D       | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|                           | |       | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|               |           | |       | |",
+  "+ + + + + + + + + + + + + + + +-+-+-+-+ +",
+  "|               |           |           |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|               |                       |",
+  "+-+-+-+-+-+ +-+-+-+ + + + + + + + + + + +",
+  "|                           |           |",
+  "+ + + + + + + + + +-+D+-+-+ + + + + + + +",
+  "|                 |       | |           |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|                 |       | |           |",
+  "+ + + + + + + + + + + + + + + +-+-+D+-+ +",
+  "|                 |       |   |       | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|                 |       |   |       | |",
+  "+ + + + + + + + + +-+-+-+-+ + + + + + + +",
+  "|                             |       | |",
+  "+ + + + + + + + + + + + + + + +-+-+-+-+ +",
+  "|                                       |",
+  "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+ ],
+ "specials": {
+  "3,3": {
+   "type": "stairs_up"
+  },
+  "10,16": {
+   "type": "stairs_down",
+   "requires": "wardlantern",
+   "locked_text": "The final stair. Without the Wardlantern, the descent is folly \u2014 the Temple would arm you, if they knew."
+  },
+  "16,8": {
+   "type": "quest_item",
+   "grant": "void_lens",
+   "text": "On a lead pedestal: the VOID LENS. Through it, lies unravel."
+  },
+  "15,8": {
+   "type": "encounter",
+   "id": "blind_watcher",
+   "once": true,
+   "groups": [
+    [
+     "blind_watcher",
+     "1d1"
+    ],
+    [
+     "void_shade",
+     "1d2"
+    ]
+   ],
+   "text": "Something eyeless turns toward you anyway: the BLIND WATCHER."
+  },
+  "18,18": {
+   "type": "elevator",
+   "floors": [
+    4,
+    9
+   ],
+   "requires": "black_key",
+   "locked_text": "The shaft is chained with black iron."
+  },
+  "7,7": {
+   "type": "spinner"
+  },
+  "12,3": {
+   "type": "spinner"
+  },
+  "3,4": {
+   "type": "message",
+   "text": "The dark here is total, and the silence eats spells. Word must reach the Temple that you walk this deep."
+  },
+  "10,15": {
+   "type": "message",
+   "text": "Below: warmth. The first warmth in nine levels."
+  },
+  "16,7": {
+   "type": "message",
+   "text": "A reliquary of things that see truly."
+  }
+ },
+ "zones": {
+  "dark": [
+   [
+    0,
+    6,
+    19,
+    19
+   ]
+  ],
+  "null": [
+   [
+    6,
+    0,
+    13,
+    10
+   ]
+  ]
+ }
+}

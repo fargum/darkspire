@@ -1,0 +1,129 @@
+{
+ "name": "The Archon's Sanctum",
+ "depth": 10,
+ "start": {
+  "x": 10,
+  "y": 16,
+  "facing": 0
+ },
+ "grid": [
+  "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+",
+  "|                                       |",
+  "+ +-+-+-+-+ + +-+-+-+-+-+-+-+ + +-+-+-+ +",
+  "| |       |   |             |   |     | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |       D   |             |   D     | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |       |   |             |   |     | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |       |   |             |   |     | |",
+  "+ +-+-+-+-+ + + + + + + + + + + +-+-+-+ +",
+  "|             |             |           |",
+  "+ + + + + + + +-+-+-+I+-+-+-+ + + + + + +",
+  "|                                       |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|                                       |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|                                       |",
+  "+-+-+-+-+-+I+-+-+-+-+-+-+-+-+I+-+-+-+-+-+",
+  "|                                       |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|           |                 |         |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|           |                           |",
+  "+ + + +-+ +-+-+-+-+-+-+-+-+-+-+ +-+ + + +",
+  "|           |                 |         |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|                             |         |",
+  "+ + + + + + + + +-+-+D+-+-+ + + + + + + +",
+  "|           |   |         |   |         |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|           |   |         |   |         |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|               |         |   |         |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|           |   |         |             |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|           |   |         |   |         |",
+  "+ + + + + + + + +-+-+-+-+-+ + + + + + + +",
+  "|           |                 |         |",
+  "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+ ],
+ "specials": {
+  "10,16": {
+   "type": "stairs_up"
+  },
+  "10,4": {
+   "type": "encounter",
+   "id": "vexis",
+   "once": true,
+   "groups": [
+    [
+     "vexis",
+     "1d1"
+    ],
+    [
+     "sanctum_guard",
+     "1d2"
+    ],
+    [
+     "flame_wraith",
+     "1d2"
+    ]
+   ],
+   "grant": "everflame_taken",
+   "text": "VEXIS, THE MAD ARCHON, turns from the caged flame. 'You brought my lantern. How thoughtful.'",
+   "victory_text": "The Archon falls. The EVERFLAME leaps into the Wardlantern \u2014 and it SINGS."
+  },
+  "10,2": {
+   "type": "portal",
+   "requires": "everflame_taken",
+   "text": "A dormant portal of white marble. It ignores you utterly."
+  },
+  "5,8": {
+   "type": "encounter",
+   "id": "echo_west",
+   "once": true,
+   "groups": [
+    [
+     "archon_echo",
+     "1d1"
+    ],
+    [
+     "sanctum_guard",
+     "1d1"
+    ]
+   ],
+   "text": "An ECHO of the Archon flickers into being, furious."
+  },
+  "14,8": {
+   "type": "encounter",
+   "id": "echo_east",
+   "once": true,
+   "groups": [
+    [
+     "archon_echo",
+     "1d1"
+    ],
+    [
+     "flame_wraith",
+     "1d1"
+    ]
+   ],
+   "text": "An ECHO of the Archon flickers into being, laughing."
+  },
+  "10,15": {
+   "type": "message",
+   "text": "Illusion coats these halls like lacquer. Trust the Lens."
+  },
+  "10,5": {
+   "type": "message",
+   "text": "Beyond the false wall: firelight, and a voice talking to it."
+  },
+  "2,2": {
+   "type": "message",
+   "text": "Vestments for a congregation of one."
+  }
+ },
+ "zones": {}
+}

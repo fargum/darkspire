@@ -1,0 +1,123 @@
+{
+ "name": "The Fungal Warrens",
+ "depth": 4,
+ "start": {
+  "x": 16,
+  "y": 2,
+  "facing": 2
+ },
+ "grid": [
+  "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+",
+  "|                   |                   |",
+  "+ +-+-+-+-+ + + + + + + + + +-+-+-+-+-+ +",
+  "| |       |         |       |         | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |       D         |       D         | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |       |         |       |         | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |       |                 |         | |",
+  "+ +-+D+-+-+ + + + + + + + + +-+-+D+-+-+ +",
+  "|                   |                   |",
+  "+ + + +-+-+D+-+-+ + + + + + + + + + + + +",
+  "|     |         |   |                   |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|     |         |   |                   |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|     |         D   |                   |",
+  "+ + + + + + + + +-+ +-+-+-+-+ +-+-+-+-+-+",
+  "|     |         |                       |",
+  "+ + + + + + + + + + + + +-+-+D+-+-+ + + +",
+  "|     |         |       |         |     |",
+  "+ + + +-+-+-+-+-+ + + + + + + + + + + + +",
+  "|                       |         |     |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|                       D         |     |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|                       |         |     |",
+  "+-+ +-+-+-+-+ + + + + + + + + + + + + + +",
+  "|                       | |       |     |",
+  "+ + + + + + +-+-+D+-+-+-+-+-+-+-+-+ + + +",
+  "|           |           | |             |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|           |           | |             |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|           |           |               |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|           |           | |             |",
+  "+ + + + + + +-+-+-+-+-+-+ + + + + + + + +",
+  "|                         |             |",
+  "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+ ],
+ "specials": {
+  "16,2": {
+   "type": "stairs_up"
+  },
+  "8,17": {
+   "type": "stairs_down"
+  },
+  "2,2": {
+   "type": "elevator",
+   "floors": [
+    1,
+    4
+   ]
+  },
+  "5,8": {
+   "type": "font",
+   "dice": "1d8",
+   "text": "A spring of clear water glows faintly here."
+  },
+  "14,12": {
+   "type": "riddle",
+   "grant": "pale_word",
+   "text": "A dead courtier's ghost whispers: 'I speak without a mouth and hear without ears. Nobody sees me, but I answer all who call. Say my name.'",
+   "answer": "echo",
+   "success": "'Yes... ECHO. Speak it at the Pale Court's gate.'"
+  },
+  "9,9": {
+   "type": "spinner"
+  },
+  "4,14": {
+   "type": "spinner"
+  },
+  "18,17": {
+   "type": "teleporter",
+   "to": [
+    1,
+    17
+   ]
+  },
+  "18,18": {
+   "type": "elevator",
+   "floors": [
+    4,
+    9
+   ],
+   "requires": "black_key",
+   "locked_text": "A second shaft, chained shut. The lock is black iron."
+  },
+  "16,4": {
+   "type": "message",
+   "text": "Spores drift like snow that never lands."
+  },
+  "2,4": {
+   "type": "message",
+   "text": "The elevator cage rattles, hungry to move."
+  },
+  "8,15": {
+   "type": "message",
+   "text": "Below, something pale holds court."
+  }
+ },
+ "zones": {
+  "dark": [
+   [
+    0,
+    15,
+    5,
+    19
+   ]
+  ]
+ }
+}

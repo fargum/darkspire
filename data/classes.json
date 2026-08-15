@@ -1,0 +1,82 @@
+{
+  "warrior": {
+    "name": "Warrior",
+    "reqs": {"might": 11},
+    "alignments": ["light", "gray", "shadow"],
+    "hit_die": 10,
+    "elite": false,
+    "xp_mult": 1.0,
+    "school": null,
+    "desc": "Front-line fighter. Best weapons and armor."
+  },
+  "mage": {
+    "name": "Mage",
+    "reqs": {"intellect": 11},
+    "alignments": ["light", "gray", "shadow"],
+    "hit_die": 4,
+    "elite": false,
+    "xp_mult": 1.0,
+    "school": "mage",
+    "desc": "Wielder of mage spells, HALITO to TILTOWAIT. Fragile."
+  },
+  "priest": {
+    "name": "Priest",
+    "reqs": {"faith": 11},
+    "alignments": ["light", "gray", "shadow"],
+    "hit_die": 8,
+    "elite": false,
+    "xp_mult": 1.0,
+    "school": "priest",
+    "desc": "Channel of priest spells, DIOS to KADORTO. Maces and medium armor."
+  },
+  "rogue": {
+    "name": "Rogue",
+    "reqs": {"agility": 11},
+    "alignments": ["light", "gray", "shadow"],
+    "hit_die": 6,
+    "elite": false,
+    "xp_mult": 1.0,
+    "school": null,
+    "desc": "Master of traps, locks, and the hidden knife. Best chest work."
+  },
+  "spellblade": {
+    "name": "Spellblade",
+    "reqs": {"might": 13, "intellect": 12},
+    "alignments": ["gray", "shadow"],
+    "hit_die": 8,
+    "elite": true,
+    "xp_mult": 1.6,
+    "school": "mage_partial",
+    "desc": "Warrior who bends mage spells (levels 1-4) to the blade. Slow learner."
+  },
+  "templar": {
+    "name": "Templar",
+    "reqs": {"might": 13, "faith": 12},
+    "alignments": ["light"],
+    "hit_die": 10,
+    "elite": true,
+    "xp_mult": 1.6,
+    "school": "priest_partial",
+    "desc": "Holy warrior with priest spells (levels 1-4) and healing hands. Light only."
+  },
+  "sage": {
+    "name": "Sage",
+    "reqs": {"intellect": 12, "faith": 12},
+    "alignments": ["light", "gray", "shadow"],
+    "hit_die": 6,
+    "elite": true,
+    "xp_mult": 1.6,
+    "school": "both",
+    "desc": "Student of both schools, learned slowly. Master identifier of items."
+  },
+  "shadowdancer": {
+    "name": "Shadowdancer",
+    "reqs": {"agility": 15, "luck": 14},
+    "alignments": ["shadow"],
+    "hit_die": 6,
+    "elite": true,
+    "xp_mult": 1.6,
+    "school": null,
+    "desc": "Elite killer who strikes from hiding for instant death. Shadow only."
+  }
+}

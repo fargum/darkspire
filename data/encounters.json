@@ -1,0 +1,575 @@
+{
+  "1": [
+    {
+      "weight": 3,
+      "groups": [
+        [
+          "giant_rat",
+          "2d3"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "rogue_apprentice",
+          "1d3"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "bonepicker",
+          "1d4"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "gutter_wisp",
+          "2d2"
+        ]
+      ]
+    },
+    {
+      "weight": 1,
+      "groups": [
+        [
+          "cellar_spider",
+          "1d2"
+        ]
+      ]
+    },
+    {
+      "weight": 1,
+      "groups": [
+        [
+          "rust_slime",
+          "1d3"
+        ]
+      ]
+    },
+    {
+      "weight": 1,
+      "groups": [
+        [
+          "gutter_wisp",
+          "1d3"
+        ],
+        [
+          "giant_rat",
+          "1d3"
+        ]
+      ]
+    }
+  ],
+  "2": [
+    {
+      "weight": 3,
+      "groups": [
+        [
+          "drowned_one",
+          "1d4"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "marsh_leech",
+          "2d3"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "pale_frog",
+          "1d4"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "cistern_crawler",
+          "1d3"
+        ]
+      ]
+    },
+    {
+      "weight": 1,
+      "groups": [
+        [
+          "slime_horror",
+          "1d2"
+        ]
+      ]
+    },
+    {
+      "weight": 1,
+      "groups": [
+        [
+          "hollow_squire",
+          "1d2"
+        ]
+      ]
+    },
+    {
+      "weight": 1,
+      "groups": [
+        [
+          "drowned_one",
+          "1d3"
+        ],
+        [
+          "marsh_leech",
+          "1d3"
+        ]
+      ]
+    }
+  ],
+  "3": [
+    {
+      "weight": 3,
+      "groups": [
+        [
+          "animated_armor",
+          "1d3"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "ember_hound",
+          "1d3"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "foundry_imp",
+          "2d2"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "iron_beetle",
+          "1d3"
+        ]
+      ]
+    },
+    {
+      "weight": 1,
+      "groups": [
+        [
+          "foundry_imp",
+          "1d3"
+        ],
+        [
+          "ember_hound",
+          "1d2"
+        ]
+      ]
+    },
+    {
+      "weight": 1,
+      "groups": [
+        [
+          "animated_armor",
+          "1d2"
+        ],
+        [
+          "iron_beetle",
+          "1d2"
+        ]
+      ]
+    }
+  ],
+  "4": [
+    {
+      "weight": 3,
+      "groups": [
+        [
+          "myconid",
+          "2d3"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "fungal_shambler",
+          "1d3"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "warren_stalker",
+          "2d2"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "spore_witch",
+          "1d2"
+        ],
+        [
+          "myconid",
+          "1d3"
+        ]
+      ]
+    },
+    {
+      "weight": 1,
+      "groups": [
+        [
+          "warren_stalker",
+          "1d3"
+        ],
+        [
+          "fungal_shambler",
+          "1d2"
+        ]
+      ]
+    }
+  ],
+  "5": [
+    {
+      "weight": 3,
+      "groups": [
+        [
+          "pale_wraith",
+          "2d2"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "court_specter",
+          "2d2"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "pale_knight",
+          "1d3"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "grave_priest",
+          "1d2"
+        ],
+        [
+          "pale_knight",
+          "1d2"
+        ]
+      ]
+    },
+    {
+      "weight": 1,
+      "groups": [
+        [
+          "pale_wraith",
+          "1d3"
+        ],
+        [
+          "court_specter",
+          "1d3"
+        ]
+      ]
+    }
+  ],
+  "6": [
+    {
+      "weight": 3,
+      "groups": [
+        [
+          "hall_stalker",
+          "2d3"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "shifting_horror",
+          "2d2"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "mimic",
+          "1d2"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "mad_cartographer",
+          "1d3"
+        ],
+        [
+          "hall_stalker",
+          "1d2"
+        ]
+      ]
+    },
+    {
+      "weight": 1,
+      "groups": [
+        [
+          "shifting_horror",
+          "1d2"
+        ],
+        [
+          "mimic",
+          "1d1"
+        ]
+      ]
+    }
+  ],
+  "7": [
+    {
+      "weight": 3,
+      "groups": [
+        [
+          "flesh_hybrid",
+          "2d3"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "chimera_whelp",
+          "2d2"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "cage_stalker",
+          "2d2"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "vexis_experiment",
+          "2d2"
+        ],
+        [
+          "chimera_whelp",
+          "1d2"
+        ]
+      ]
+    },
+    {
+      "weight": 1,
+      "groups": [
+        [
+          "cage_stalker",
+          "1d3"
+        ],
+        [
+          "flesh_hybrid",
+          "1d3"
+        ]
+      ]
+    }
+  ],
+  "8": [
+    {
+      "weight": 3,
+      "groups": [
+        [
+          "cinder_fiend",
+          "2d2"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "gaol_demon",
+          "1d3"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "chain_devil",
+          "1d3"
+        ],
+        [
+          "cinder_fiend",
+          "1d2"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "pyre_priest",
+          "1d2"
+        ],
+        [
+          "gaol_demon",
+          "1d2"
+        ]
+      ]
+    },
+    {
+      "weight": 1,
+      "groups": [
+        [
+          "pyre_priest",
+          "1d3"
+        ],
+        [
+          "chain_devil",
+          "1d3"
+        ]
+      ]
+    }
+  ],
+  "9": [
+    {
+      "weight": 3,
+      "groups": [
+        [
+          "null_stalker",
+          "1d3"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "void_shade",
+          "2d2"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "whisper_swarm",
+          "1d3"
+        ],
+        [
+          "void_shade",
+          "1d2"
+        ]
+      ]
+    },
+    {
+      "weight": 1,
+      "groups": [
+        [
+          "null_stalker",
+          "1d2"
+        ],
+        [
+          "whisper_swarm",
+          "1d2"
+        ]
+      ]
+    }
+  ],
+  "10": [
+    {
+      "weight": 3,
+      "groups": [
+        [
+          "sanctum_guard",
+          "1d3"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "flame_wraith",
+          "1d3"
+        ]
+      ]
+    },
+    {
+      "weight": 2,
+      "groups": [
+        [
+          "archon_echo",
+          "1d2"
+        ],
+        [
+          "sanctum_guard",
+          "1d2"
+        ]
+      ]
+    },
+    {
+      "weight": 1,
+      "groups": [
+        [
+          "archon_echo",
+          "1d2"
+        ],
+        [
+          "flame_wraith",
+          "1d3"
+        ]
+      ]
+    }
+  ]
+}

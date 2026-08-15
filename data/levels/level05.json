@@ -1,0 +1,110 @@
+{
+ "name": "The Pale Court",
+ "depth": 5,
+ "start": {
+  "x": 8,
+  "y": 17,
+  "facing": 0
+ },
+ "grid": [
+  "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+",
+  "|                                       |",
+  "+ +-+-+-+-+ + + + + + + + + + + +-+-+-+ +",
+  "| |       |                     |     | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |       D                     |     | |",
+  "+ + + + + + +-+-+-+-+-+-+-+-+-+ + + + + +",
+  "| |       | |                 | D     | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |       | |                 | |     | |",
+  "+ +-+-+-+-+ + + + + + + + + + + + + + + +",
+  "|         | |                 | |     | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|           |                 | |     | |",
+  "+ + + + + + + + + + + + + + + + +-+-+-+ +",
+  "|         | |                 |         |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|         | |                 |         |",
+  "+ + + + + + +-+-+-+-+D+-+-+-+-+ + + + + +",
+  "|         |                             |",
+  "+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+ +-+-+-+",
+  "| |         |             |             |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |         |             |             |",
+  "+ + + + + + + + + + + + + + +-+-+D+-+-+ +",
+  "| |         D               |         | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |         |             | |         | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |         |             | D         | |",
+  "+ +-+-+-+-+-+ + + + + + + + + + + + + + +",
+  "|                         | |         | |",
+  "+ + + + + + +-+-+D+-+-+-+ + + + + + + + +",
+  "|           |           |   |         | |",
+  "+ + + + + + + + + + + + + + +-+-+-+-+-+ +",
+  "|           |           D               |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|           |           |               |",
+  "+ + + + + + +-+-+-+-+-+-+ + + + + + + + +",
+  "|                                       |",
+  "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+ ],
+ "specials": {
+  "8,17": {
+   "type": "stairs_up"
+  },
+  "12,4": {
+   "type": "stairs_down",
+   "requires": "ivory_crown",
+   "locked_text": "A pale arch bars the stair: 'TRIBUTE', it demands."
+  },
+  "10,9": {
+   "type": "gate",
+   "requires": "pale_word",
+   "text": "Pale guards cross their halberds. They await a word."
+  },
+  "10,5": {
+   "type": "encounter",
+   "id": "pale_countess",
+   "once": true,
+   "groups": [
+    [
+     "pale_countess",
+     "1d1"
+    ],
+    [
+     "court_specter",
+     "1d3"
+    ]
+   ],
+   "grant": "ivory_crown",
+   "text": "The PALE COUNTESS descends from her throne of ribs.",
+   "victory_text": "The IVORY CROWN clatters from her fading brow."
+  },
+  "4,4": {
+   "type": "spinner"
+  },
+  "8,16": {
+   "type": "message",
+   "text": "Cold silk brushes your face. Nothing is there."
+  },
+  "10,8": {
+   "type": "message",
+   "text": "Music, thin as frost, drifts from the court."
+  },
+  "3,10": {
+   "type": "message",
+   "text": "The cloister drinks your lanternlight."
+  }
+ },
+ "zones": {
+  "dark": [
+   [
+    0,
+    10,
+    5,
+    14
+   ]
+  ]
+ }
+}

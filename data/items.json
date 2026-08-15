@@ -1,0 +1,396 @@
+{
+  "dagger": {
+    "name": "Dagger",
+    "slot": "weapon",
+    "price": 15,
+    "damage": "1d4",
+    "ac": 0,
+    "classes": "all",
+    "desc": "A short blade anyone can use."
+  },
+  "staff": {
+    "name": "Walking Staff",
+    "slot": "weapon",
+    "price": 10,
+    "damage": "1d4",
+    "ac": 0,
+    "classes": "all",
+    "desc": "Sturdy oak. Better than fists."
+  },
+  "short_sword": {
+    "name": "Short Sword",
+    "slot": "weapon",
+    "price": 60,
+    "damage": "1d6",
+    "ac": 0,
+    "classes": [
+      "warrior",
+      "rogue",
+      "spellblade",
+      "templar",
+      "shadowdancer"
+    ],
+    "desc": "A soldier's standby."
+  },
+  "mace": {
+    "name": "Mace",
+    "slot": "weapon",
+    "price": 120,
+    "damage": "1d6",
+    "ac": 0,
+    "classes": [
+      "warrior",
+      "priest",
+      "templar",
+      "sage"
+    ],
+    "desc": "Blunt and blessed-friendly."
+  },
+  "long_sword": {
+    "name": "Long Sword",
+    "slot": "weapon",
+    "price": 200,
+    "damage": "1d8",
+    "ac": 0,
+    "classes": [
+      "warrior",
+      "spellblade",
+      "templar"
+    ],
+    "desc": "The knight's companion."
+  },
+  "battle_axe": {
+    "name": "Battle Axe",
+    "slot": "weapon",
+    "price": 350,
+    "damage": "1d10",
+    "ac": 0,
+    "classes": [
+      "warrior"
+    ],
+    "desc": "Heavy, brutal, warrior-only."
+  },
+  "robes": {
+    "name": "Robes",
+    "slot": "armor",
+    "price": 15,
+    "damage": null,
+    "ac": 1,
+    "classes": "all",
+    "desc": "Thick cloth. Barely armor."
+  },
+  "leather_armor": {
+    "name": "Leather Armor",
+    "slot": "armor",
+    "price": 50,
+    "damage": null,
+    "ac": 2,
+    "classes": [
+      "warrior",
+      "priest",
+      "rogue",
+      "spellblade",
+      "templar",
+      "sage",
+      "shadowdancer"
+    ],
+    "desc": "Boiled hide, light and quiet."
+  },
+  "chain_mail": {
+    "name": "Chain Mail",
+    "slot": "armor",
+    "price": 230,
+    "damage": null,
+    "ac": 4,
+    "classes": [
+      "warrior",
+      "priest",
+      "spellblade",
+      "templar"
+    ],
+    "desc": "Rings of iron."
+  },
+  "breast_plate": {
+    "name": "Breast Plate",
+    "slot": "armor",
+    "price": 600,
+    "damage": null,
+    "ac": 5,
+    "classes": [
+      "warrior",
+      "spellblade",
+      "templar"
+    ],
+    "desc": "Solid steel over the heart."
+  },
+  "plate_mail": {
+    "name": "Plate Mail",
+    "slot": "armor",
+    "price": 1500,
+    "damage": null,
+    "ac": 6,
+    "classes": [
+      "warrior",
+      "templar"
+    ],
+    "desc": "A fortress you can wear."
+  },
+  "buckler": {
+    "name": "Buckler",
+    "slot": "shield",
+    "price": 40,
+    "damage": null,
+    "ac": 1,
+    "classes": [
+      "warrior",
+      "priest",
+      "rogue",
+      "spellblade",
+      "templar",
+      "shadowdancer"
+    ],
+    "desc": "A small round shield."
+  },
+  "large_shield": {
+    "name": "Large Shield",
+    "slot": "shield",
+    "price": 180,
+    "damage": null,
+    "ac": 2,
+    "classes": [
+      "warrior",
+      "priest",
+      "templar"
+    ],
+    "desc": "Cover from chin to knee."
+  },
+  "cap": {
+    "name": "Leather Cap",
+    "slot": "helm",
+    "price": 30,
+    "damage": null,
+    "ac": 1,
+    "classes": "all",
+    "desc": "Keeps the rain off, mostly."
+  },
+  "helm": {
+    "name": "Iron Helm",
+    "slot": "helm",
+    "price": 250,
+    "damage": null,
+    "ac": 2,
+    "classes": [
+      "warrior",
+      "priest",
+      "spellblade",
+      "templar"
+    ],
+    "desc": "Full-face iron."
+  },
+  "gloves": {
+    "name": "Leather Gloves",
+    "slot": "gloves",
+    "price": 60,
+    "damage": null,
+    "ac": 1,
+    "classes": "all",
+    "desc": "A better grip, a little cover."
+  },
+  "gauntlets": {
+    "name": "Gauntlets",
+    "slot": "gloves",
+    "price": 300,
+    "damage": null,
+    "ac": 2,
+    "classes": [
+      "warrior",
+      "templar"
+    ],
+    "desc": "Articulated steel fists."
+  },
+  "heal_draught": {
+    "name": "Healing Draught",
+    "slot": "misc",
+    "price": 100,
+    "damage": null,
+    "ac": 0,
+    "classes": "all",
+    "use": "heal_1d8",
+    "desc": "Restores 1d8 HP when drunk."
+  },
+  "antidote": {
+    "name": "Antidote",
+    "slot": "misc",
+    "price": 80,
+    "damage": null,
+    "ac": 0,
+    "classes": "all",
+    "use": "cure_poison",
+    "desc": "Neutralizes most venoms."
+  },
+  "dagger_p1": {
+    "name": "Dagger +1",
+    "slot": "weapon",
+    "price": 500,
+    "damage": "1d4+2",
+    "ac": 0,
+    "classes": "all",
+    "unid_name": "? Dagger",
+    "stock": false,
+    "desc": "Quicker than it should be."
+  },
+  "mace_p1": {
+    "name": "Mace +1",
+    "slot": "weapon",
+    "price": 900,
+    "damage": "1d6+2",
+    "ac": 0,
+    "classes": [
+      "warrior",
+      "priest",
+      "templar",
+      "sage"
+    ],
+    "unid_name": "? Mace",
+    "stock": false,
+    "desc": "It hums with quiet wrath."
+  },
+  "long_sword_p1": {
+    "name": "Long Sword +1",
+    "slot": "weapon",
+    "price": 1200,
+    "damage": "1d8+2",
+    "ac": 0,
+    "classes": [
+      "warrior",
+      "spellblade",
+      "templar"
+    ],
+    "unid_name": "? Long Sword",
+    "stock": false,
+    "desc": "Edge that never dulls."
+  },
+  "leather_p1": {
+    "name": "Leather Armor +1",
+    "slot": "armor",
+    "price": 700,
+    "damage": null,
+    "ac": 3,
+    "classes": [
+      "warrior",
+      "priest",
+      "rogue",
+      "spellblade",
+      "templar",
+      "sage",
+      "shadowdancer"
+    ],
+    "unid_name": "? Leather Armor",
+    "stock": false,
+    "desc": "Supple as skin, hard as horn."
+  },
+  "chain_p1": {
+    "name": "Chain Mail +1",
+    "slot": "armor",
+    "price": 1600,
+    "damage": null,
+    "ac": 5,
+    "classes": [
+      "warrior",
+      "priest",
+      "spellblade",
+      "templar"
+    ],
+    "unid_name": "? Chain Mail",
+    "stock": false,
+    "desc": "Rings of moonlit steel."
+  },
+  "buckler_p1": {
+    "name": "Buckler +1",
+    "slot": "shield",
+    "price": 600,
+    "damage": null,
+    "ac": 2,
+    "classes": [
+      "warrior",
+      "priest",
+      "rogue",
+      "spellblade",
+      "templar",
+      "shadowdancer"
+    ],
+    "unid_name": "? Buckler",
+    "stock": false,
+    "desc": "It leans into the blow."
+  },
+  "bent_sword": {
+    "name": "Bent Sword",
+    "slot": "weapon",
+    "price": 10,
+    "damage": "1d3",
+    "ac": 0,
+    "classes": [
+      "warrior",
+      "rogue",
+      "spellblade",
+      "templar",
+      "shadowdancer"
+    ],
+    "unid_name": "? Short Sword",
+    "stock": false,
+    "cursed": true,
+    "desc": "It fights you more than them."
+  },
+  "gloom_helm": {
+    "name": "Gloom Helm",
+    "slot": "helm",
+    "price": 10,
+    "damage": null,
+    "ac": -1,
+    "classes": "all",
+    "unid_name": "? Helm",
+    "stock": false,
+    "cursed": true,
+    "desc": "The darkness inside never lifts."
+  },
+  "amulet_bone": {
+    "name": "Bone Amulet",
+    "slot": "misc",
+    "price": 350,
+    "damage": null,
+    "ac": 0,
+    "classes": "all",
+    "unid_name": "? Amulet",
+    "stock": false,
+    "desc": "Old, ugly, and worth good coin."
+  },
+  "flame_blade": {
+    "name": "Flame Blade",
+    "slot": "weapon",
+    "price": 5000,
+    "damage": "2d6+2",
+    "ac": 0,
+    "classes": [
+      "warrior",
+      "spellblade",
+      "templar"
+    ],
+    "unid_name": "? Long Sword",
+    "stock": false,
+    "desc": "It remembers the forge fondly."
+  },
+  "seraph_mail": {
+    "name": "Seraph Mail",
+    "slot": "armor",
+    "price": 8000,
+    "damage": null,
+    "ac": 7,
+    "classes": [
+      "warrior",
+      "templar"
+    ],
+    "unid_name": "? Plate Mail",
+    "stock": false,
+    "desc": "Feather-light, dawn-bright."
+  }
+}

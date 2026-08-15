@@ -1,0 +1,113 @@
+{
+ "name": "The Ember Gaol",
+ "depth": 8,
+ "start": {
+  "x": 16,
+  "y": 3,
+  "facing": 2
+ },
+ "grid": [
+  "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+",
+  "|                                       |",
+  "+ +-+-+-+-+-+ + + + + + + + +-+-+-+-+-+ +",
+  "| |         |               |         | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |         |               |         | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |         D               D         | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |         |               |         | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |         |               |         | |",
+  "+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+D+-+-+ +",
+  "|             |                         |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|             |                         |",
+  "+ + + + + + + + +-+-+D+-+-+ + + + + + + +",
+  "|             | |         |             |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|             | |         |             |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|               |         |             |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|             | |         |             |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|             | |         |             |",
+  "+ + + + + + + + +-+-+-+-+-+ + + + + + + +",
+  "|             |                         |",
+  "+ + + + + + +-+-+ +-+-+-+-+-+-+-+D+-+-+-+",
+  "|             |               |       | |",
+  "+ +-+D+-+-+-+-+ + + + + + + + + + + + + +",
+  "| |           |               |       | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |           |               |       | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |           D               |       | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "| |           |               |       | |",
+  "+ +-+-+-+-+-+-+ + + + + + + + +-+-+-+-+ +",
+  "|                                       |",
+  "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+ ],
+ "specials": {
+  "16,3": {
+   "type": "stairs_up"
+  },
+  "3,3": {
+   "type": "stairs_down"
+  },
+  "10,7": {
+   "type": "encounter",
+   "id": "gaol_keeper",
+   "once": true,
+   "groups": [
+    [
+     "gaol_keeper",
+     "1d1"
+    ],
+    [
+     "chain_devil",
+     "1d2"
+    ]
+   ],
+   "text": "The GAOL KEEPER unfolds from the wall of chains before the cell."
+  },
+  "10,10": {
+   "type": "quest_item",
+   "grant": "seraph_blessing",
+   "text": "You shatter the chains of the BOUND SERAPH. Wings of quiet fire unfurl \u2014 and a lasting blessing settles on the party."
+  },
+  "7,15": {
+   "type": "pit",
+   "dice": "2d8",
+   "text": "Embers geyser from a floor grate!"
+  },
+  "13,5": {
+   "type": "pit",
+   "dice": "2d8",
+   "text": "Embers geyser from a floor grate!"
+  },
+  "16,5": {
+   "type": "message",
+   "text": "Heat, chains, and far below \u2014 weeping."
+  },
+  "10,8": {
+   "type": "message",
+   "text": "Inside the cell, your spells die on your lips."
+  },
+  "2,15": {
+   "type": "message",
+   "text": "The ash out here is knee-deep and still warm."
+  }
+ },
+ "zones": {
+  "null": [
+   [
+    8,
+    8,
+    12,
+    12
+   ]
+  ]
+ }
+}

@@ -1,0 +1,27 @@
+{
+  "human": {
+    "name": "Human",
+    "stats": {"might": 8, "agility": 8, "vitality": 8, "intellect": 8, "faith": 8, "luck": 9},
+    "desc": "Balanced and adaptable; at home in any calling."
+  },
+  "elf": {
+    "name": "Elf",
+    "stats": {"might": 7, "agility": 9, "vitality": 6, "intellect": 10, "faith": 10, "luck": 8},
+    "desc": "Keen-minded and devout, but frail of body."
+  },
+  "dwarf": {
+    "name": "Dwarf",
+    "stats": {"might": 10, "agility": 6, "vitality": 10, "intellect": 7, "faith": 9, "luck": 8},
+    "desc": "Stone-blooded; strong and enduring, slow of foot."
+  },
+  "gnome": {
+    "name": "Gnome",
+    "stats": {"might": 7, "agility": 10, "vitality": 8, "intellect": 7, "faith": 10, "luck": 7},
+    "desc": "Nimble, pious tinkerers with little luck to spare."
+  },
+  "halfling": {
+    "name": "Halfling",
+    "stats": {"might": 5, "agility": 10, "vitality": 7, "intellect": 7, "faith": 7, "luck": 12},
+    "desc": "Small, quick, and uncannily lucky."
+  }
+}

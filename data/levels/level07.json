@@ -1,0 +1,101 @@
+{
+ "name": "The Menagerie",
+ "depth": 7,
+ "start": {
+  "x": 4,
+  "y": 18,
+  "facing": 0
+ },
+ "grid": [
+  "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+",
+  "|                                       |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|                                       |",
+  "+ + +-+-+-+ +-+-+-+ +-+-+-+ +-+-+-+ + + +",
+  "|   |     | |     | |     | |     |     |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|   |     | |     | |     | |     |     |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|   |     | |     | |     | |     |     |",
+  "+ + +-+D+-+ +-+D+-+ +-+D+-+ +-+D+-+ + + +",
+  "|                                       |",
+  "+-+-+-+ +-+-+-+ +-+-+-+ +-+-+-+ +-+-+ +-+",
+  "|                                       |",
+  "+ + + + + + + + +-+-+D+-+-+ + + + + + + +",
+  "|               |         |             |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|               |         |             |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|               |         |             |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|               |         |             |",
+  "+ + + + + + + + +-+D+-+-+-+ + + + + + + +",
+  "|                                       |",
+  "+-+-+ +-+-+ +-+-+ + + + + + +-+-+-+-+-+ +",
+  "|                           |         | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|                           D         | |",
+  "+ + +-+-+D+-+-+ + + + + + + + + + + + + +",
+  "|   |         |             |         | |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|   |         |             |         | |",
+  "+ + + + + + + + + + + + + + +-+-+-+-+-+ +",
+  "|   |         D           |             |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|   |         |                         |",
+  "+ + + + + + + + + + + + + + + + + + + + +",
+  "|   |         |           |             |",
+  "+ + +-+-+-+-+-+ + + + + + + + + + + + + +",
+  "|                         |             |",
+  "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+ ],
+ "specials": {
+  "4,18": {
+   "type": "stairs_up"
+  },
+  "16,3": {
+   "type": "stairs_down",
+   "requires": "black_key",
+   "locked_text": "This cage holds only a stair \u2014 behind a black-barred gate."
+  },
+  "10,8": {
+   "type": "encounter",
+   "id": "amalgam",
+   "once": true,
+   "groups": [
+    [
+     "the_amalgam",
+     "1d1"
+    ],
+    [
+     "cage_stalker",
+     "1d2"
+    ]
+   ],
+   "grant": "black_key",
+   "text": "The pit stirs. THE AMALGAM \u2014 a dozen beasts sewn into one \u2014 rises.",
+   "victory_text": "In the Amalgam's gullet: the BLACK KEY, half-digested."
+  },
+  "5,14": {
+   "type": "spinner"
+  },
+  "12,13": {
+   "type": "pit",
+   "dice": "2d6",
+   "text": "A cage floor snaps shut on the party!"
+  },
+  "4,17": {
+   "type": "message",
+   "text": "Cages. Hundreds of cages. Most are empty. Most."
+  },
+  "10,9": {
+   "type": "message",
+   "text": "Bones of every shape carpet this pit."
+  },
+  "15,3": {
+   "type": "message",
+   "text": "The last cage was never meant to hold an animal."
+  }
+ },
+ "zones": {}
+}
