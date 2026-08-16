@@ -20,6 +20,15 @@ ROOMS = [
 ]
 
 
+def _xp_note(c):
+    if c.status != "OK":
+        return ""
+    if progression.can_level(c):
+        return "ready!"
+    needed = progression.xp_for_level(c.cls, c.level + 1) - c.xp
+    return f"{needed} XP to next"
+
+
 class InnScene(Scene):
     def on_enter(self):
         self.rng = random.Random()
@@ -38,6 +47,7 @@ class InnScene(Scene):
                 MenuItem(
                     f"{c.name:<14} Lv{c.level:>2} {classes[c.cls]['name']}", i,
                     enabled=c.status == "OK",
+                    note=_xp_note(c),
                 )
                 for i, c in enumerate(self.gs.party)
             ]
@@ -76,7 +86,7 @@ class InnScene(Scene):
             self.result_lines.append(f"Recovered {healed} HP for {spent} gold.")
         elif heal == 0:
             self.result_lines.append("Cold straw, but the price is right.")
-        if heal > 0 and spells.is_caster(c):
+        if heal >= 0 and spells.is_caster(c):
             spells.restore(c)
             self.result_lines.append("Rest returns every spell to mind.")
         if progression.can_level(c):
@@ -123,7 +133,7 @@ class InnScene(Scene):
             tr.draw(surf, "Form a party at the tavern first. (esc)", (60, 90), palette.TEXT)
         elif self.state_ == "WHO":
             tr.draw(surf, "Who takes a room?", (60, 44), palette.TEXT)
-            self.who_menu.draw(surf, tr, 80, 70, width=330)
+            self.who_menu.draw(surf, tr, 80, 70, width=480)
         elif self.state_ == "ROOM":
             c = self.guest
             ready = progression.can_level(c)
@@ -131,6 +141,8 @@ class InnScene(Scene):
             tr.draw(surf, headline, (60, 44), palette.TEXT)
             if ready:
                 tr.draw(surf, "They look ready to advance!", (400, 44), palette.GOOD)
+            else:
+                tr.draw(surf, _xp_note(c), (400, 44), palette.DIM)
             self.room_menu.draw(surf, tr, 80, 70, width=380)
         elif self.state_ == "RESULT":
             y = 50

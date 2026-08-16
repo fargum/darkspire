@@ -40,6 +40,7 @@ class CampScene(Scene):
             MenuItem("Inspect a member", "inspect"),
             MenuItem("Equip gear", "equip"),
             MenuItem("Use an item", "use"),
+            MenuItem("Trade items", "trade", enabled=len(self.gs.party) > 1),
             MenuItem("Identify (Sage)", "identify", enabled=bool(sages)),
             MenuItem("Swap marching order", "reorder", enabled=len(self.gs.party) > 1),
             MenuItem("Break camp", "back"),
@@ -52,7 +53,7 @@ class CampScene(Scene):
             for i, c in enumerate(self.gs.party)
         ])
 
-    def _item_menu(self, char, usable_only=False):
+    def _item_menu(self, char, usable_only=False, trade=False):
         rows = []
         for i, entry in enumerate(char.inventory):
             it = items.item(entry["key"])
@@ -60,9 +61,16 @@ class CampScene(Scene):
                 continue
             label = items.display_name(entry) + (
                 "  [equipped]" if entry.get("equipped") else "")
-            rows.append(MenuItem(label, i))
+            enabled = not (trade and items.is_cursed_stuck(entry))
+            rows.append(MenuItem(label, i, enabled=enabled))
         rows.append(MenuItem("Never mind", "back"))
         return Menu(rows)
+
+    def _target_menu(self, choices):
+        return Menu([
+            MenuItem(f"{c.name:<14} {len(c.inventory)}/{items.INVENTORY_CAP} slots", i)
+            for i, c in enumerate(choices)
+        ] + [MenuItem("Never mind", "back")])
 
     def _spell_menu(self, char):
         return Menu([
@@ -92,7 +100,7 @@ class CampScene(Scene):
         esc = event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE
         if self.state_ == "MENU":
             choice = self.menu.handle_event(event)
-            if choice in ("inspect", "equip", "use", "cast", "identify"):
+            if choice in ("inspect", "equip", "use", "trade", "cast", "identify"):
                 self.action = choice
                 if choice == "cast":
                     chars = [c for c in self.gs.party
@@ -134,7 +142,8 @@ class CampScene(Scene):
                     self.state_ = "ID_ITEMS"
                 else:
                     self.item_menu = self._item_menu(
-                        self.member, usable_only=self.action == "use"
+                        self.member, usable_only=self.action == "use",
+                        trade=self.action == "trade",
                     )
                     self.state_ = "ITEMS"
             elif esc:
@@ -203,12 +212,27 @@ class CampScene(Scene):
                     ok, msg = items.equip(self.member, choice)
                     self.message = msg
                     self.item_menu = self._item_menu(self.member)
+                elif self.action == "trade":
+                    self.trade_index = choice
+                    self.trade_choices = [c for c in self.gs.party if c is not self.member]
+                    self.target_menu = self._target_menu(self.trade_choices)
+                    self.state_ = "TRADE_TARGET"
                 else:
                     self.message = items.use_item(
                         self.member, choice, self.gs.party, self.rng
                     )
                     self.gs.save()
                     self.state_ = "WHO"
+        elif self.state_ == "TRADE_TARGET":
+            choice = self.target_menu.handle_event(event)
+            if choice == "back" or esc:
+                self.state_ = "ITEMS"
+            elif choice is not None:
+                receiver = self.trade_choices[choice]
+                ok, msg = items.transfer_item(self.member, self.trade_index, receiver)
+                self.message = msg
+                self.gs.save()
+                self._to_menu()
         elif self.state_ == "REORDER":
             choice = self.list_menu.handle_event(event)
             if choice is not None:
@@ -260,7 +284,7 @@ class CampScene(Scene):
         elif self.state_ == "WHO":
             prompts = {"inspect": "Look over whom?", "equip": "Outfit whom?",
                        "use": "Whose pack?", "cast": "Who casts?",
-                       "identify": "Whose finds?"}
+                       "identify": "Whose finds?", "trade": "Whose pack?"}
             tr.draw(surf, prompts[self.action], (60, 44), palette.TEXT)
             self.list_menu.draw(surf, tr, 80, 70, width=330)
         elif self.state_ == "SHEET":
@@ -269,6 +293,9 @@ class CampScene(Scene):
             tr.draw(surf, f"{self.member.name} — AC {self.member.ac}", (60, 44),
                     palette.TEXT)
             self.item_menu.draw(surf, tr, 80, 70, width=330, max_rows=7)
+        elif self.state_ == "TRADE_TARGET":
+            tr.draw(surf, "Give to whom?", (60, 44), palette.TEXT)
+            self.target_menu.draw(surf, tr, 80, 70, width=330)
         elif self.state_ == "REORDER":
             prompt = "Swap whom?" if self.swap_first is None else \
                 f"Swap {self.gs.party[self.swap_first].name} with whom?"

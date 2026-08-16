@@ -7,7 +7,7 @@ import pygame
 from engine import palette
 from engine.scene import Scene
 from engine.ui import Menu, MenuItem, draw_panel
-from game import data
+from game import data, items
 from game.state import PARTY_CAP
 from scenes.common import draw_character_sheet, draw_party_bar
 
@@ -35,6 +35,7 @@ class TavernScene(Scene):
             MenuItem("Swap marching order", "reorder", enabled=len(party) > 1),
             MenuItem("Inspect a member", "inspect", enabled=bool(party)),
             MenuItem("Divvy gold", "divvy", enabled=bool(party)),
+            MenuItem("Trade items", "trade", enabled=len(party) > 1),
             MenuItem("Buy a round, hear rumors", "rumor",
                      enabled=self.gs.party_gold() >= 10),
             MenuItem("Leave the tavern", "leave"),
@@ -46,6 +47,22 @@ class TavernScene(Scene):
             MenuItem(f"{c.name:<14} Lv{c.level:>2} {classes[c.cls]['name']}", i)
             for i, c in enumerate(chars)
         ])
+
+    def _item_menu(self, char):
+        rows = []
+        for i, entry in enumerate(char.inventory):
+            label = items.display_name(entry) + (
+                "  [equipped]" if entry.get("equipped") else "")
+            enabled = not items.is_cursed_stuck(entry)
+            rows.append(MenuItem(label, i, enabled=enabled))
+        rows.append(MenuItem("Never mind", "back"))
+        return Menu(rows)
+
+    def _target_menu(self, choices):
+        return Menu([
+            MenuItem(f"{c.name:<14} {len(c.inventory)}/{items.INVENTORY_CAP} slots", i)
+            for i, c in enumerate(choices)
+        ] + [MenuItem("Never mind", "back")])
 
     def handle_event(self, event):
         esc = event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE
@@ -69,6 +86,9 @@ class TavernScene(Scene):
                 self.gs.divvy_gold()
                 self.gs.save()
                 self.message = "The gold is divided evenly."
+            elif choice == "trade":
+                self.list_menu = self._member_menu(self.gs.party)
+                self.state_ = "TRADE_WHO"
             elif choice == "rumor":
                 self.gs.party_pay(10)
                 self.gs.save()
@@ -128,6 +148,33 @@ class TavernScene(Scene):
                 pygame.K_ESCAPE, pygame.K_RETURN, pygame.K_KP_ENTER
             ):
                 self.state_ = "INSPECT_LIST"
+        elif self.state_ == "TRADE_WHO":
+            choice = self.list_menu.handle_event(event)
+            if choice is not None:
+                self.trader = self.gs.party[choice]
+                self.item_menu = self._item_menu(self.trader)
+                self.state_ = "TRADE_ITEMS"
+            elif esc:
+                self._to_menu()
+        elif self.state_ == "TRADE_ITEMS":
+            choice = self.item_menu.handle_event(event)
+            if choice == "back" or esc:
+                self.state_ = "TRADE_WHO"
+            elif choice is not None:
+                self.trade_index = choice
+                self.trade_choices = [c for c in self.gs.party if c is not self.trader]
+                self.target_menu = self._target_menu(self.trade_choices)
+                self.state_ = "TRADE_TARGET"
+        elif self.state_ == "TRADE_TARGET":
+            choice = self.target_menu.handle_event(event)
+            if choice == "back" or esc:
+                self.state_ = "TRADE_ITEMS"
+            elif choice is not None:
+                receiver = self.trade_choices[choice]
+                ok, msg = items.transfer_item(self.trader, self.trade_index, receiver)
+                self.message = msg
+                self.gs.save()
+                self._to_menu()
 
     def draw(self, surf):
         tr = self.app.text
@@ -143,11 +190,12 @@ class TavernScene(Scene):
                 for line in self._wrap_text(self.rumor, 26):
                     tr.draw(surf, line, (380, y), palette.ACCENT)
                     y += tr.ch
-        elif self.state_ in ("ADD", "REMOVE", "INSPECT_LIST"):
+        elif self.state_ in ("ADD", "REMOVE", "INSPECT_LIST", "TRADE_WHO"):
             titles = {
                 "ADD": "Who joins the party?",
                 "REMOVE": "Who steps out?",
                 "INSPECT_LIST": "Look over whom?",
+                "TRADE_WHO": "Whose pack?",
             }
             tr.draw(surf, titles[self.state_], (60, 44), palette.TEXT)
             self.list_menu.draw(surf, tr, 80, 70, width=320)
@@ -159,6 +207,15 @@ class TavernScene(Scene):
             self.list_menu.draw(surf, tr, 80, 70, width=320)
         elif self.state_ == "INSPECT_VIEW":
             draw_character_sheet(surf, tr, self.gs.party[self.view_index], 60, 44)
+        elif self.state_ == "TRADE_ITEMS":
+            tr.draw(surf, f"{self.trader.name}'s pack — give what?", (60, 44),
+                    palette.TEXT)
+            self.item_menu.draw(surf, tr, 80, 70, width=320, max_rows=7)
+        elif self.state_ == "TRADE_TARGET":
+            tr.draw(surf, "Give to whom?", (60, 44), palette.TEXT)
+            self.target_menu.draw(surf, tr, 80, 70, width=320)
+        if self.message and self.state_ in ("TRADE_ITEMS", "TRADE_TARGET"):
+            tr.draw(surf, self.message, (330, 44), palette.ACCENT)
         draw_party_bar(surf, tr, self.gs.party)
         if not self.gs.party and self.state_ == "MENU":
             tr.draw(surf, "No party yet. Add members from the roster.",

@@ -1,8 +1,9 @@
 """Tests for M2 systems: state/party, items/equip, progression, temple."""
 
 import random
+from pathlib import Path
 
-from game import creation, items, progression, temple
+from game import creation, items, paths, progression, temple
 from game.character import STATS
 from game.state import GameState, PARTY_CAP
 
@@ -66,6 +67,30 @@ def test_state_roundtrip(tmp_path, monkeypatch):
     assert [c.name for c in loaded.roster] == ["Alpha", "Beta"]
     assert [c.name for c in loaded.party] == ["Beta"]
     assert loaded.party[0] is loaded.roster[1]  # same object, not a copy
+
+
+def test_local_save_root_uses_project_dir(monkeypatch):
+    monkeypatch.delenv("DARKSPIRE_SAVE_ROOT", raising=False)
+    monkeypatch.setattr(paths.sys, "frozen", False, raising=False)
+    assert paths.save_root() == Path(__file__).resolve().parents[1]
+
+
+def test_frozen_save_root_uses_appdata(monkeypatch, tmp_path):
+    monkeypatch.delenv("DARKSPIRE_SAVE_ROOT", raising=False)
+    monkeypatch.setattr(paths.sys, "frozen", True, raising=False)
+    monkeypatch.setattr(paths.sys, "executable", "C:/Games/Darkspire/dist/Darkspire.exe")
+    appdata = tmp_path / "AppData" / "Roaming"
+    monkeypatch.setenv("APPDATA", str(appdata))
+
+    project_save_dir = Path(__file__).resolve().parents[1] / "saves"
+    legacy_file = project_save_dir / "game.json"
+    if legacy_file.exists():
+        target = appdata / "Darkspire" / "saves" / "game.json"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(legacy_file.read_text(encoding="utf-8"), encoding="utf-8")
+
+    assert paths.save_root() == appdata / "Darkspire"
+    assert (appdata / "Darkspire" / "saves" / "game.json").exists()
 
 
 # ---- items ---------------------------------------------------------------
@@ -135,9 +160,11 @@ def test_level_up():
 
 def test_temple_costs_scale():
     c = _char("Lazarus")
-    c.status = "DEAD"
+    c.status = "STONED"
     c.level = 4
-    assert temple.cost_for(c) == 1000
+    assert temple.cost_for(c) == 600
+    c.status = "DEAD"
+    assert temple.cost_for(c) == 0
     c.status = "POISONED"
     assert temple.cost_for(c) == 50
 

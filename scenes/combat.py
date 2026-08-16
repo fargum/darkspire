@@ -18,7 +18,8 @@ KIND_COLORS = {
     "bad": palette.BAD,
     "dim": palette.DIM,
 }
-LOG_LINES = 11
+LOG_WRAP_WIDTH = 25
+LOG_RECT = pygame.Rect(416, 12, 212, 240)
 
 
 class CombatScene(Scene):
@@ -48,6 +49,7 @@ class CombatScene(Scene):
                 self.fight.null = True
         self.chest = None
         self.log = []
+        self.log_scroll = 0
         self.say("dim", "You are beset!")
         if self.fight.surprise == "party":
             self._resolve({})       # ambush round happens before you can act
@@ -55,8 +57,90 @@ class CombatScene(Scene):
             self._start_declaration()
 
     def say(self, kind, text):
-        self.log.append((text, KIND_COLORS[kind]))
-        del self.log[:-60]
+        color = KIND_COLORS[kind]
+        for line in _wrap(text, LOG_WRAP_WIDTH):
+            self.log.append((line, color))
+        del self.log[:-400]
+        self.log_scroll = 0  # new messages snap the view back to the latest line
+
+    def _log_visible_lines(self):
+        tr = self.app.text
+        top = LOG_RECT.y + 16
+        limit = LOG_RECT.bottom - tr.ch
+        if limit < top:
+            return 1
+        return (limit - top) // tr.ch + 1
+
+    def update(self, dt):
+        if self.state_ == "RESOLVING":
+            self.log_delay += dt
+            if self.log_queue and self.log_delay >= 0.35:
+                self._advance_result_log()
+
+    def _queue_result_lines(self, lines):
+        self.pending_result_lines = list(lines)
+        self.log_queue = list(lines)
+        self.log_delay = 0.0
+        self.state_ = "RESOLVING"
+        if self.log_queue:
+            self._advance_result_log()
+
+    def _advance_result_log(self):
+        if not self.log_queue:
+            self._finish_result_display()
+            return
+        kind, text = self.log_queue.pop(0)
+        self.say(kind, text)
+        self.log_delay = 0.0
+        if not self.log_queue:
+            self._finish_result_display()
+
+    def _finish_result_display(self):
+        if not self.pending_result_lines:
+            self.state_ = "ROUND_DONE"
+            return
+        fight = getattr(self, "fight", None)
+        if fight is None:
+            self.state_ = "ROUND_DONE"
+            self.pending_result_lines = []
+            self.log_queue = []
+            return
+        texts = " ".join(t for _, t in self.pending_result_lines)
+        if "casts" in texts:
+            audio.play("spell", 0.6)
+        if "slain" in texts or "destroyed" in texts:
+            audio.play("slain", 0.7)
+        elif "hits" in texts or "takes" in texts:
+            audio.play("hit", 0.6)
+        if fight.result == "victory":
+            for kind, text in fight.distribute_rewards():
+                self.say(kind, text)
+            if self.encounter_id:
+                self.app.state.quest[f"enc_{self.encounter_id}"] = True
+            if self.grant:
+                self.app.state.quest[self.grant] = True
+            if self.victory_text:
+                self.say("good", self.victory_text)
+            self.encounter_id = self.grant = self.victory_text = None
+            self.app.state.save()
+            audio.play("victory", 0.7)
+            if self.chest is None:      # a Screamer refight keeps the old chest
+                self.chest = chests.maybe_chest(self.depth, self.rng)
+            if self.chest and not self.chest["open"]:
+                self.say("good", "Among the remains: a heavy chest!")
+                self._chest_who()
+            else:
+                self.state_ = "VICTORY"
+        elif fight.result == "defeat":
+            audio.play("defeat")
+            self.state_ = "DEFEAT"
+        elif fight.result == "fled":
+            self.app.state.save()
+            self.state_ = "FLED"
+        else:
+            self.state_ = "ROUND_DONE"
+        self.pending_result_lines = []
+        self.log_queue = []
 
     # ---- declaration flow ------------------------------------------------
     def _actors(self):
@@ -114,42 +198,7 @@ class CombatScene(Scene):
 
     def _resolve(self, actions):
         lines = self.fight.resolve(actions)
-        for kind, text in lines:
-            self.say(kind, text)
-        texts = " ".join(t for _, t in lines)
-        if "casts" in texts:
-            audio.play("spell", 0.6)
-        if "slain" in texts or "destroyed" in texts:
-            audio.play("slain", 0.7)
-        elif "hits" in texts or "takes" in texts:
-            audio.play("hit", 0.6)
-        if self.fight.result == "victory":
-            for kind, text in self.fight.distribute_rewards():
-                self.say(kind, text)
-            if self.encounter_id:
-                self.app.state.quest[f"enc_{self.encounter_id}"] = True
-            if self.grant:
-                self.app.state.quest[self.grant] = True
-            if self.victory_text:
-                self.say("good", self.victory_text)
-            self.encounter_id = self.grant = self.victory_text = None
-            self.app.state.save()
-            audio.play("victory", 0.7)
-            if self.chest is None:      # a Screamer refight keeps the old chest
-                self.chest = chests.maybe_chest(self.depth, self.rng)
-            if self.chest and not self.chest["open"]:
-                self.say("good", "Among the remains: a heavy chest!")
-                self._chest_who()
-            else:
-                self.state_ = "VICTORY"
-        elif self.fight.result == "defeat":
-            audio.play("defeat")
-            self.state_ = "DEFEAT"
-        elif self.fight.result == "fled":
-            self.app.state.save()
-            self.state_ = "FLED"
-        else:
-            self.state_ = "ROUND_DONE"
+        self._queue_result_lines(lines)
 
     # ---- chest flow ------------------------------------------------------
     def _chest_who(self):
@@ -204,6 +253,17 @@ class CombatScene(Scene):
 
     # ---- events ----------------------------------------------------------
     def handle_event(self, event):
+        if event.type == pygame.KEYDOWN and event.key in (
+            pygame.K_PAGEUP, pygame.K_PAGEDOWN
+        ):
+            total = len(self.log)
+            visible = self._log_visible_lines()
+            max_scroll = max(0, total - max(1, visible - 1))
+            if event.key == pygame.K_PAGEUP:
+                self.log_scroll = min(self.log_scroll + 3, max_scroll)
+            else:
+                self.log_scroll = max(self.log_scroll - 3, 0)
+            return
         if event.type != pygame.KEYDOWN and self.state_ != "DECLARE":
             return
         if self.state_ == "DECLARE":
@@ -372,17 +432,31 @@ class CombatScene(Scene):
                     (panel.x + 56, y + 7), palette.TEXT)
             y += 36
 
-        logp = pygame.Rect(416, 12, 212, 240)
+        logp = LOG_RECT
         draw_panel(surf, logp, tr, "BATTLE")
         ly = logp.y + 16
-        for text, color in self.log[-LOG_LINES:]:
-            for line in _wrap(text, 25):
-                tr.draw(surf, line, (logp.x + 10, ly), color)
-                ly += tr.ch
-                if ly > logp.bottom - tr.ch:
-                    break
-            if ly > logp.bottom - tr.ch:
-                break
+        total = len(self.log)
+        log_scroll = getattr(self, "log_scroll", 0)
+        visible = self._log_visible_lines()
+        scrollable = total > visible
+        content_capacity = max(1, visible - 1) if scrollable else visible
+        max_scroll = max(0, total - content_capacity)
+        log_scroll = max(0, min(log_scroll, max_scroll))
+        self.log_scroll = log_scroll
+        end = total - log_scroll
+        start = max(0, end - content_capacity)
+        if scrollable:
+            parts = []
+            if start > 0:
+                parts.append("▲ more")
+            if end < total:
+                parts.append("▼ more")
+            hint = "   ".join(parts) if parts else "(PgUp/PgDn)"
+            tr.draw(surf, hint, (logp.x + 10, ly), palette.DIM)
+            ly += tr.ch
+        for text, color in self.log[start:end]:
+            tr.draw(surf, text, (logp.x + 10, ly), color)
+            ly += tr.ch
 
         strip = pygame.Rect(12, 172, 396, 96)
         current = None
@@ -425,15 +499,18 @@ class CombatScene(Scene):
             draw_panel(surf, strip, tr)
             prompts = {
                 "ROUND_DONE": "enter — next round",
+                "RESOLVING": "Resolving combat...",
                 "VICTORY": "VICTORY!  enter continues",
                 "FLED": "You got away.  enter continues",
                 "DEFEAT": "The party has fallen. Days later, scavengers drag "
                           "your bodies to the temple... enter",
             }
-            color = palette.GOOD if self.state_ == "VICTORY" else (
-                palette.BAD if self.state_ == "DEFEAT" else palette.TEXT)
-            for j, line in enumerate(_wrap(prompts[self.state_], 48)):
-                tr.draw(surf, line, (strip.x + 24, strip.y + 20 + j * tr.ch), color)
+            state_prompt = prompts.get(self.state_, "")
+            if state_prompt:
+                color = palette.GOOD if self.state_ == "VICTORY" else (
+                    palette.BAD if self.state_ == "DEFEAT" else palette.TEXT)
+                for j, line in enumerate(_wrap(state_prompt, 48)):
+                    tr.draw(surf, line, (strip.x + 24, strip.y + 20 + j * tr.ch), color)
 
         draw_party_bar(surf, tr, self.app.state.party, highlight=current)
 

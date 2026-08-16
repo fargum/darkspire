@@ -102,6 +102,20 @@ def remove_item(char, index):
     return entry
 
 
+def transfer_item(giver, index, receiver):
+    """Hand inventory[index] from giver to receiver. Returns (ok, message)."""
+    if receiver is giver:
+        return False, "They already have it."
+    entry = giver.inventory[index]
+    if len(receiver.inventory) >= INVENTORY_CAP:
+        return False, f"{receiver.name}'s pack is full."
+    if is_cursed_stuck(entry):
+        return False, f"The {display_name(entry)} will not let go!"
+    giver.inventory.pop(index)
+    receiver.inventory.append(entry)
+    return True, f"{display_name(entry)} passed to {receiver.name}."
+
+
 def sell_price(key):
     return item(key)["price"] // 2
 

@@ -79,6 +79,10 @@ class Combat:
     def bodies(self):
         return [c for c in self.party if c.status in BODIES]
 
+    def _sink_incapacitated(self):
+        """Push anyone who can't act to the back so the living can front-line."""
+        self.party.sort(key=lambda c: c.status not in ACTIVE)
+
     def alive_groups(self):
         return [g for g in self.groups if g["members"]]
 
@@ -218,6 +222,7 @@ class Combat:
             for c in self.party:
                 if c.status == "ASLEEP":
                     c.status = "OK"
+        self._sink_incapacitated()
         return lines
 
     def _char_fight(self, char, group_index, lines):

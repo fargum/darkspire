@@ -2,10 +2,14 @@
 
 import random
 
+import pygame
 import pytest
 
+from engine import palette
+from engine.text import TextRenderer
 from game import combat, creation, data, dice
 from game.character import STATS
+from scenes.combat import CombatScene
 
 
 def _char(name, cls="warrior", **overrides):
@@ -159,3 +163,43 @@ def test_unidentified_then_identified():
     fight.resolve({0: ("parry",)})
     if fight.groups[0]["members"]:
         assert "Rat" in fight.group_label(fight.groups[0])
+
+
+def test_combat_scene_staggers_result_lines():
+    scene = CombatScene.__new__(CombatScene)
+    scene.log = []
+    scene.log_queue = []
+    scene.state_ = "DECLARE"
+    scene._pending_log_callback = None
+
+    scene._queue_result_lines([("info", "one"), ("bad", "two")])
+
+    assert scene.log == [("one", palette.TEXT)]
+    assert scene.log_queue == [("bad", "two")]
+    assert scene.state_ == "RESOLVING"
+
+    scene._advance_result_log()
+
+    assert scene.log == [("one", palette.TEXT), ("two", palette.BAD)]
+    assert scene.log_queue == []
+
+
+def test_combat_scene_draw_handles_resolving_state():
+    pygame.init()
+    scene = CombatScene.__new__(CombatScene)
+    scene.app = type("App", (), {
+        "text": TextRenderer(),
+        "state": type("State", (), {"party": []})(),
+    })()
+    scene.fight = type("Fight", (), {
+        "surprise": None,
+        "alive_groups": lambda self: [],
+    })()
+    scene.log = [("one", palette.TEXT)]
+    scene.state_ = "RESOLVING"
+    scene.menu = None
+    scene.target_menu = None
+    scene.item_menu = None
+    scene.spell_menu = None
+    scene.chest_menu = None
+    scene.draw(pygame.Surface((640, 400)))

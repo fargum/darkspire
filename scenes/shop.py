@@ -38,6 +38,8 @@ class ShopScene(Scene):
             MenuItem("Sell", "sell", enabled=bool(c.inventory)),
             MenuItem("Identify", "identify", enabled=unidentified),
             MenuItem("Equip gear", "equip", enabled=bool(c.inventory)),
+            MenuItem("Give an item", "trade",
+                     enabled=bool(c.inventory) and len(self.gs.party) > 1),
             MenuItem("Pool party gold here", "pool", enabled=len(self.gs.party) > 1),
             MenuItem("Done", "done"),
         ])
@@ -103,6 +105,23 @@ class ShopScene(Scene):
         rows.append(MenuItem("Done fitting", "back"))
         self.equip_menu = Menu(rows)
 
+    def _to_trade_items(self):
+        self.state_ = "TRADE_ITEMS"
+        c = self.shopper
+        rows = []
+        for i, e in enumerate(c.inventory):
+            label = items.display_name(e) + (
+                "  [equipped]" if e.get("equipped") else "")
+            rows.append(MenuItem(label, i, enabled=not items.is_cursed_stuck(e)))
+        rows.append(MenuItem("Never mind", "back"))
+        self.trade_item_menu = Menu(rows)
+
+    def _target_menu(self, choices):
+        return Menu([
+            MenuItem(f"{c.name:<14} {len(c.inventory)}/{items.INVENTORY_CAP} slots", i)
+            for i, c in enumerate(choices)
+        ] + [MenuItem("Never mind", "back")])
+
     def handle_event(self, event):
         esc = event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE
         if self.state_ == "WHO":
@@ -124,6 +143,8 @@ class ShopScene(Scene):
                 self._to_identify()
             elif choice == "equip":
                 self._to_equip()
+            elif choice == "trade":
+                self._to_trade_items()
             elif choice == "pool":
                 self.gs.pool_gold(self.shopper)
                 self.gs.save()
@@ -184,6 +205,25 @@ class ShopScene(Scene):
                 self.message = msg
                 self._to_equip()
                 self.equip_menu.index = min(index, len(self.equip_menu.items) - 1)
+        elif self.state_ == "TRADE_ITEMS":
+            choice = self.trade_item_menu.handle_event(event)
+            if choice == "back" or esc:
+                self._to_shopper_menu()
+            elif choice is not None:
+                self.trade_index = choice
+                self.trade_choices = [c for c in self.gs.party if c is not self.shopper]
+                self.trade_target_menu = self._target_menu(self.trade_choices)
+                self.state_ = "TRADE_TARGET"
+        elif self.state_ == "TRADE_TARGET":
+            choice = self.trade_target_menu.handle_event(event)
+            if choice == "back" or esc:
+                self._to_trade_items()
+            elif choice is not None:
+                receiver = self.trade_choices[choice]
+                ok, msg = items.transfer_item(self.shopper, self.trade_index, receiver)
+                self.message = msg
+                self.gs.save()
+                self._to_shopper_menu()
 
     def draw(self, surf):
         tr = self.app.text
@@ -213,7 +253,14 @@ class ShopScene(Scene):
         elif self.state_ == "EQUIP":
             tr.draw(surf, f"{self.shopper.name} — AC {self.shopper.ac}", (60, 44), palette.TEXT)
             self.equip_menu.draw(surf, tr, 70, 66, width=340, max_rows=7)
+        elif self.state_ == "TRADE_ITEMS":
+            tr.draw(surf, f"{self.shopper.name}'s pack — give what?", (60, 44),
+                    palette.TEXT)
+            self.trade_item_menu.draw(surf, tr, 70, 66, width=340, max_rows=7)
+        elif self.state_ == "TRADE_TARGET":
+            tr.draw(surf, "Give to whom?", (60, 44), palette.TEXT)
+            self.trade_target_menu.draw(surf, tr, 70, 66, width=340)
         if self.message and self.state_ in ("SHOP_MENU", "BUY", "SELL", "EQUIP",
-                                            "IDENTIFY"):
+                                            "IDENTIFY", "TRADE_ITEMS", "TRADE_TARGET"):
             tr.draw(surf, self.message, (330, 44), palette.ACCENT)
         draw_party_bar(surf, tr, self.gs.party)
