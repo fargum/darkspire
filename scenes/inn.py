@@ -13,7 +13,7 @@ from scenes.common import draw_party_bar
 
 ROOMS = [
     ("The Stables", 0, 0),
-    ("A Cot in the Common Room", 10, 2),
+    ("A Cot in the Common Room", 1, 2),
     ("An Economy Room", 50, 5),
     ("A Merchant Suite", 200, 12),
     ("The Royal Suite", 500, 25),
@@ -92,6 +92,7 @@ class InnScene(Scene):
         if progression.can_level(c):
             import audio
             audio.play("levelup")
+            before_sp = spells.max_points(c)
             gains = progression.level_up(c, self.rng)
             c.hp = c.max_hp
             spells.restore(c)
@@ -101,6 +102,13 @@ class InnScene(Scene):
             for stat, delta in gains["stats"].items():
                 word = "rises" if delta > 0 else "fades"
                 self.result_lines.append(f"{STAT_LABELS[stat]} {word}.")
+            after_sp = spells.max_points(c)
+            for school in spells.SCHOOLS:
+                for i, (before, after) in enumerate(zip(before_sp[school], after_sp[school])):
+                    if before == 0 and after > 0:
+                        self.result_lines.append(
+                            f"New {school.capitalize()} spells of level {i + 1} are within reach!"
+                        )
         self.gs.save()
         self.state_ = "RESULT"
 

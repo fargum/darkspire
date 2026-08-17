@@ -27,7 +27,7 @@ def test_endgame_monster_data():
     monsters = data.load("monsters")
     assert len(monsters) == 48
     vexis = monsters["vexis"]
-    assert vexis["caster"] and vexis["drain"] and vexis["xp"] == 25000
+    assert vexis["caster"] and vexis["drain"] and vexis["xp"] == 100000
     for depth in range(1, 11):
         assert str(depth) in data.load("encounters")
         assert str(depth) in data.load("loot")

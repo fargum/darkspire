@@ -86,7 +86,7 @@ def test_victory_and_rewards():
     assert fight.kills["giant_rat"] == 1
     xp_before = party[0].xp
     fight.distribute_rewards()
-    assert party[0].xp == xp_before + 20
+    assert party[0].xp == xp_before + 80
 
 
 def test_defeat_marks_dead():

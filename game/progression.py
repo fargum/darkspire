@@ -10,7 +10,7 @@ STAT_LIFETIME_CAP = 20
 
 def xp_for_level(cls_key, level):
     """Cumulative XP required to BE the given level."""
-    if level <= 1:
+    if level <= 0:
         return 0
     base = 1000 * data.classes()[cls_key]["xp_mult"]
     return int(base * (1.72 ** (level - 2)))

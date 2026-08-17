@@ -12,7 +12,7 @@
     "special": {
       "poison": 0.1
     },
-    "xp": 20,
+    "xp": 80,
     "gold": "1d6"
   },
   "gutter_wisp": {
@@ -25,7 +25,7 @@
     "attacks": [
       "1d2"
     ],
-    "xp": 25,
+    "xp": 100,
     "gold": "1d4"
   },
   "bonepicker": {
@@ -38,7 +38,7 @@
     "attacks": [
       "1d4"
     ],
-    "xp": 40,
+    "xp": 160,
     "gold": "1d8",
     "undead": true
   },
@@ -52,7 +52,7 @@
     "attacks": [
       "1d4"
     ],
-    "xp": 35,
+    "xp": 140,
     "gold": "2d6"
   },
   "cellar_spider": {
@@ -68,7 +68,7 @@
     "special": {
       "poison": 0.25
     },
-    "xp": 60,
+    "xp": 230,
     "gold": "1d6"
   },
   "rust_slime": {
@@ -81,7 +81,7 @@
     "attacks": [
       "1d3"
     ],
-    "xp": 55,
+    "xp": 220,
     "gold": "1d4"
   },
   "drowned_one": {
@@ -94,7 +94,7 @@
     "attacks": [
       "1d6"
     ],
-    "xp": 90,
+    "xp": 360,
     "gold": "2d8",
     "undead": true
   },
@@ -111,7 +111,7 @@
     "special": {
       "poison": 0.3
     },
-    "xp": 70,
+    "xp": 290,
     "gold": "1d6"
   },
   "cistern_crawler": {
@@ -125,7 +125,7 @@
       "1d4",
       "1d4"
     ],
-    "xp": 110,
+    "xp": 440,
     "gold": "2d6"
   },
   "pale_frog": {
@@ -138,7 +138,7 @@
     "attacks": [
       "1d6"
     ],
-    "xp": 85,
+    "xp": 340,
     "gold": "1d8"
   },
   "hollow_squire": {
@@ -151,7 +151,7 @@
     "attacks": [
       "1d6"
     ],
-    "xp": 160,
+    "xp": 320,
     "gold": "3d8",
     "undead": true
   },
@@ -166,7 +166,7 @@
       "1d4",
       "1d4"
     ],
-    "xp": 140,
+    "xp": 280,
     "gold": "2d6"
   },
   "animated_armor": {
@@ -179,7 +179,7 @@
     "attacks": [
       "1d8"
     ],
-    "xp": 200,
+    "xp": 800,
     "gold": "2d10"
   },
   "ember_hound": {
@@ -196,7 +196,7 @@
       "dice": "2d4",
       "chance": 0.35
     },
-    "xp": 220,
+    "xp": 850,
     "gold": "2d8"
   },
   "foundry_imp": {
@@ -215,7 +215,7 @@
       ],
       "chance": 0.5
     },
-    "xp": 180,
+    "xp": 720,
     "gold": "2d10"
   },
   "iron_beetle": {
@@ -228,7 +228,7 @@
     "attacks": [
       "1d6"
     ],
-    "xp": 210,
+    "xp": 840,
     "gold": "1d10"
   },
   "forge_warden": {
@@ -245,7 +245,7 @@
       "dice": "2d8",
       "chance": 0.3
     },
-    "xp": 900,
+    "xp": 3600,
     "gold": "20d10"
   },
   "myconid": {
@@ -261,7 +261,7 @@
     "special": {
       "poison": 0.3
     },
-    "xp": 200,
+    "xp": 800,
     "gold": "1d10"
   },
   "fungal_shambler": {
@@ -275,7 +275,7 @@
       "1d6",
       "1d6"
     ],
-    "xp": 300,
+    "xp": 1200,
     "gold": "2d10"
   },
   "spore_witch": {
@@ -295,7 +295,7 @@
       ],
       "chance": 0.6
     },
-    "xp": 340,
+    "xp": 1360,
     "gold": "4d10"
   },
   "warren_stalker": {
@@ -309,7 +309,7 @@
       "1d6",
       "1d6"
     ],
-    "xp": 320,
+    "xp": 1280,
     "gold": "2d10"
   },
   "pale_wraith": {
@@ -324,7 +324,7 @@
     ],
     "drain": 0.25,
     "undead": true,
-    "xp": 620,
+    "xp": 2480,
     "gold": "3d10"
   },
   "court_specter": {
@@ -339,7 +339,7 @@
     ],
     "drain": 0.2,
     "undead": true,
-    "xp": 520,
+    "xp": 2080,
     "gold": "3d10"
   },
   "pale_knight": {
@@ -353,7 +353,7 @@
       "1d10"
     ],
     "undead": true,
-    "xp": 560,
+    "xp": 2240,
     "gold": "4d10"
   },
   "grave_priest": {
@@ -373,7 +373,7 @@
       ],
       "chance": 0.6
     },
-    "xp": 500,
+    "xp": 2000,
     "gold": "5d10"
   },
   "pale_countess": {
@@ -395,7 +395,7 @@
       "chance": 0.5
     },
     "undead": true,
-    "xp": 2200,
+    "xp": 8800,
     "gold": "30d10"
   },
   "mimic": {
@@ -409,7 +409,7 @@
       "1d8",
       "1d8"
     ],
-    "xp": 600,
+    "xp": 2400,
     "gold": "8d10"
   },
   "shifting_horror": {
@@ -423,7 +423,7 @@
       "1d8",
       "1d8"
     ],
-    "xp": 800,
+    "xp": 3200,
     "gold": "5d10"
   },
   "hall_stalker": {
@@ -436,7 +436,7 @@
     "attacks": [
       "1d10"
     ],
-    "xp": 750,
+    "xp": 3000,
     "gold": "4d10"
   },
   "mad_cartographer": {
@@ -456,7 +456,7 @@
       ],
       "chance": 0.55
     },
-    "xp": 720,
+    "xp": 2880,
     "gold": "6d10"
   },
   "chimera_whelp": {
@@ -474,7 +474,7 @@
       "dice": "3d6",
       "chance": 0.3
     },
-    "xp": 1000,
+    "xp": 4000,
     "gold": "6d10"
   },
   "flesh_hybrid": {
@@ -487,7 +487,7 @@
     "attacks": [
       "1d10"
     ],
-    "xp": 950,
+    "xp": 3800,
     "gold": "5d10"
   },
   "vexis_experiment": {
@@ -506,7 +506,7 @@
       ],
       "chance": 0.5
     },
-    "xp": 1050,
+    "xp": 4200,
     "gold": "8d10"
   },
   "cage_stalker": {
@@ -520,7 +520,7 @@
       "1d8",
       "1d8"
     ],
-    "xp": 1100,
+    "xp": 4400,
     "gold": "5d10"
   },
   "the_amalgam": {
@@ -538,7 +538,7 @@
       "dice": "4d6",
       "chance": 0.35
     },
-    "xp": 4000,
+    "xp": 16000,
     "gold": "40d10"
   },
   "cinder_fiend": {
@@ -555,7 +555,7 @@
       "dice": "3d8",
       "chance": 0.35
     },
-    "xp": 1400,
+    "xp": 5600,
     "gold": "8d10"
   },
   "gaol_demon": {
@@ -569,7 +569,7 @@
       "1d10",
       "1d8"
     ],
-    "xp": 1600,
+    "xp": 6400,
     "gold": "9d10"
   },
   "chain_devil": {
@@ -589,7 +589,7 @@
       ],
       "chance": 0.4
     },
-    "xp": 1500,
+    "xp": 6000,
     "gold": "8d10"
   },
   "pyre_priest": {
@@ -609,7 +609,7 @@
       ],
       "chance": 0.6
     },
-    "xp": 1550,
+    "xp": 6200,
     "gold": "10d10"
   },
   "gaol_keeper": {
@@ -627,7 +627,7 @@
       "dice": "3d8",
       "chance": 0.3
     },
-    "xp": 3500,
+    "xp": 14000,
     "gold": "30d10"
   },
   "null_stalker": {
@@ -642,7 +642,7 @@
       "1d10"
     ],
     "sp_drain": 0.4,
-    "xp": 2200,
+    "xp": 8800,
     "gold": "10d10"
   },
   "void_shade": {
@@ -657,7 +657,7 @@
     ],
     "drain": 0.3,
     "undead": true,
-    "xp": 2100,
+    "xp": 8400,
     "gold": "8d10"
   },
   "whisper_swarm": {
@@ -673,7 +673,7 @@
       "1d4"
     ],
     "sp_drain": 0.3,
-    "xp": 1900,
+    "xp": 7600,
     "gold": "6d10"
   },
   "blind_watcher": {
@@ -693,7 +693,7 @@
       ],
       "chance": 0.5
     },
-    "xp": 2400,
+    "xp": 9600,
     "gold": "20d10"
   },
   "sanctum_guard": {
@@ -707,7 +707,7 @@
       "1d10",
       "1d10"
     ],
-    "xp": 3000,
+    "xp": 12000,
     "gold": "15d10"
   },
   "flame_wraith": {
@@ -726,7 +726,7 @@
       "chance": 0.3
     },
     "undead": true,
-    "xp": 2800,
+    "xp": 11200,
     "gold": "12d10"
   },
   "archon_echo": {
@@ -746,7 +746,7 @@
       ],
       "chance": 0.6
     },
-    "xp": 3200,
+    "xp": 12800,
     "gold": "15d10"
   },
   "vexis": {
@@ -769,7 +769,7 @@
       "chance": 0.55
     },
     "drain": 0.25,
-    "xp": 25000,
+    "xp": 100000,
     "gold": "100d10"
   }
 }

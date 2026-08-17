@@ -8,7 +8,12 @@ RATE = 44100
 
 def _to_sound(wave):
     clipped = np.clip(wave, -1.0, 1.0)
-    return pygame.sndarray.make_sound((clipped * 32767 * 0.5).astype(np.int16))
+    samples = (clipped * 32767 * 0.5).astype(np.int16)
+    init = pygame.mixer.get_init()
+    channels = init[2] if init else 1
+    if channels > 1:                   # driver may force stereo despite mono pre_init
+        samples = np.repeat(samples[:, np.newaxis], channels, axis=1)
+    return pygame.sndarray.make_sound(samples)
 
 
 def _env(n, attack=0.01, decay=1.0):
