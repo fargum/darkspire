@@ -50,6 +50,7 @@ class CombatScene(Scene):
         self.chest = None
         self.log = []
         self.log_scroll = 0
+        self.log_last_start = 0
         self.say("dim", "You are beset!")
         if self.fight.surprise == "party":
             self._resolve({})       # ambush round happens before you can act
@@ -58,9 +59,14 @@ class CombatScene(Scene):
 
     def say(self, kind, text):
         color = KIND_COLORS[kind]
+        start = len(self.log)
         for line in _wrap(text, LOG_WRAP_WIDTH):
             self.log.append((line, color))
-        del self.log[:-400]
+        trimmed = len(self.log) - 400
+        if trimmed > 0:
+            del self.log[:trimmed]
+            start -= trimmed
+        self.log_last_start = max(0, start)  # live view shows only this message
         self.log_scroll = 0  # new messages snap the view back to the latest line
 
     def _log_visible_lines(self):
@@ -74,7 +80,7 @@ class CombatScene(Scene):
     def update(self, dt):
         if self.state_ == "RESOLVING":
             self.log_delay += dt
-            if self.log_queue and self.log_delay >= 0.35:
+            if self.log_queue and self.log_delay >= 1.0:
                 self._advance_result_log()
 
     def _queue_result_lines(self, lines):
@@ -444,7 +450,11 @@ class CombatScene(Scene):
         log_scroll = max(0, min(log_scroll, max_scroll))
         self.log_scroll = log_scroll
         end = total - log_scroll
-        start = max(0, end - content_capacity)
+        if log_scroll == 0:
+            # live view: only the latest message, replacing the previous one
+            start = max(getattr(self, "log_last_start", 0), end - content_capacity)
+        else:
+            start = max(0, end - content_capacity)
         if scrollable:
             parts = []
             if start > 0:
